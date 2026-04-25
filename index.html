@@ -1,6 +1,3 @@
-Paste this full code into `index.html`:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +43,7 @@ h1{font-size:72px;line-height:1.03;color:var(--navy);letter-spacing:-2.6px;margi
 .info-row{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:17px 0;font-size:15px;color:var(--muted)}
 .info-row b{color:var(--navy)}
 
-/* PREMIUM HERO VISUAL */
+/* FIXED PREMIUM VISUAL */
 .visual-pro{
   margin-top:30px;height:176px;border-radius:18px;border:1px solid var(--line);
   background:linear-gradient(135deg,#f8fbff,#edf5ff);position:relative;overflow:hidden;
@@ -56,20 +53,28 @@ h1{font-size:72px;line-height:1.03;color:var(--navy);letter-spacing:-2.6px;margi
   background-image:
   linear-gradient(rgba(21,89,170,.06) 1px,transparent 1px),
   linear-gradient(90deg,rgba(21,89,170,.06) 1px,transparent 1px);
-  background-size:26px 26px;opacity:.7
+  background-size:26px 26px;opacity:.75;
 }
-.pipe-line{position:absolute;height:7px;border-radius:50px;opacity:.55}
-.pipe-a{width:420px;background:#b6c7dc;left:44px;top:56px;transform:rotate(-8deg)}
-.pipe-b{width:390px;background:#95b3d5;left:110px;top:106px;transform:rotate(9deg)}
-.pipe-c{width:240px;background:#d7e1ee;left:230px;top:82px;transform:rotate(-23deg)}
+.pipe-main{
+  position:absolute;width:450px;height:8px;background:#aebed4;left:34px;top:84px;
+  border-radius:50px;opacity:.75;
+}
+.pipe-left{
+  position:absolute;width:230px;height:7px;background:#c5d1e0;left:238px;top:84px;
+  border-radius:50px;transform:rotate(-24deg);transform-origin:left center;opacity:.72;
+}
+.pipe-right{
+  position:absolute;width:230px;height:7px;background:#c5d1e0;left:238px;top:84px;
+  border-radius:50px;transform:rotate(24deg);transform-origin:left center;opacity:.72;
+}
 .node{
-  position:absolute;width:72px;height:72px;border-radius:18px;background:#f7f9fc;
-  border:4px solid #d4deeb;left:260px;top:52px;
-  box-shadow:0 16px 34px rgba(8,43,95,.14)
+  position:absolute;width:70px;height:70px;border-radius:18px;background:#f7f9fc;
+  border:4px solid #d4deeb;left:205px;top:49px;
+  box-shadow:0 16px 34px rgba(8,43,95,.14);
 }
 .node:before{
   content:"";position:absolute;width:28px;height:28px;border-radius:50%;
-  border:4px solid #bfc9d7;left:18px;top:18px;background:#eef3f8
+  border:4px solid #bfc9d7;left:17px;top:17px;background:#eef3f8;
 }
 .micro{position:absolute;font-size:10px;font-weight:900;letter-spacing:1.5px;color:#6f829b;opacity:.55}
 .m1{left:34px;bottom:24px}.m2{right:34px;top:24px}
@@ -179,9 +184,9 @@ footer b{color:white}
       <div class="info-row"><span>Location</span><b>Calgary, AB</b></div>
 
       <div class="visual-pro">
-        <div class="pipe-line pipe-a"></div>
-        <div class="pipe-line pipe-b"></div>
-        <div class="pipe-line pipe-c"></div>
+        <div class="pipe-main"></div>
+        <div class="pipe-left"></div>
+        <div class="pipe-right"></div>
         <div class="node"></div>
         <div class="micro m1">PEX SYSTEM LAYOUT</div>
         <div class="micro m2">TRADE SUPPLY</div>
