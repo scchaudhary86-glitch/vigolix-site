@@ -1,85 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vigolix | PEX Plumbing Supply</title>
 <style>
 :root{
-  --blue:#0b3c79;
-  --blue2:#1559aa;
-  --light:#f5f8fc;
-  --line:#dbe5f1;
-  --text:#18243a;
-  --muted:#5b6b84;
+  --navy:#082b5f;
+  --blue:#1456a0;
+  --soft:#f4f8fd;
+  --line:#d9e5f2;
+  --text:#142033;
+  --muted:#5f6f86;
+  --white:#ffffff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:white;line-height:1.6}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:var(--text);line-height:1.6}
 a{text-decoration:none;color:inherit}
-.wrap{max-width:1180px;margin:auto;padding:0 28px}
-header{height:86px;border-bottom:1px solid var(--line);background:white;position:sticky;top:0;z-index:10}
-.nav{height:86px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:12px}
-.logo img{height:44px;max-width:170px;object-fit:contain}
-.navlinks{display:flex;align-items:center;gap:34px;font-size:14px;font-weight:700;color:#34445c}
-.btn{background:var(--blue);color:white;padding:13px 22px;border-radius:6px;font-weight:700;display:inline-block}
-.btn.alt{background:white;color:var(--blue);border:1px solid #aac2df}
-.hero{background:linear-gradient(135deg,#f7fbff,#eaf3ff);padding:100px 0 90px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
-.kicker{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:18px}
-h1{font-size:58px;line-height:1.08;color:var(--blue);letter-spacing:-1.5px;margin-bottom:22px}
-.hero p{font-size:18px;color:var(--muted);max-width:610px;margin-bottom:32px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:34px;box-shadow:0 20px 55px rgba(20,60,110,.10)}
-.panel h3{color:var(--blue);margin-bottom:18px}
-.line{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:14px 0;color:#34445c;font-size:14px}
-.line b{color:var(--blue)}
-.trust{background:var(--blue);color:white;padding:16px 0;font-size:13px;font-weight:700;letter-spacing:.8px}
-.trust .wrap{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
-section{padding:86px 0}
-.section-title{max-width:650px;margin-bottom:42px}
-.section-title h2{font-size:42px;line-height:1.15;color:var(--blue);margin-bottom:14px}
-.section-title p{color:var(--muted);font-size:17px}
-.products{background:var(--light)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{background:white;border:1px solid var(--line);border-radius:14px;padding:28px;min-height:185px;transition:.2s}
-.card:hover{transform:translateY(-3px);box-shadow:0 16px 35px rgba(10,50,100,.08)}
-.icon{width:42px;height:42px;border-radius:10px;background:#e8f2ff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:20px}
-.card h3{color:var(--blue);font-size:20px;margin-bottom:9px}
-.card p{color:var(--muted);font-size:15px}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.about-box{background:var(--blue);color:white;border-radius:18px;padding:38px}
-.about-box h3{font-size:24px;margin-bottom:18px}
-.about-box p{color:#d8e8fb}
-.bullets{margin-top:24px;display:grid;gap:14px}
-.bullets div{padding-left:26px;position:relative;color:#42516a}
-.bullets div:before{content:"";width:8px;height:8px;background:var(--blue);border-radius:50%;position:absolute;left:0;top:10px}
-.trade{background:var(--light)}
-.trade-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.trade-card{background:white;border:1px solid var(--line);border-radius:14px;padding:26px;text-align:center}
-.trade-card h3{font-size:18px;color:var(--blue);margin-bottom:8px}
-.trade-card p{font-size:14px;color:var(--muted)}
-.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px}
-.info{display:grid;gap:18px;margin-top:28px;color:#42516a}
-.form{background:white;border:1px solid var(--line);border-radius:18px;padding:34px;box-shadow:0 18px 45px rgba(10,50,100,.08)}
+.wrap{max-width:1480px;margin:auto;padding:0 56px}
+header{height:92px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:99}
+.nav{height:92px;display:flex;align-items:center;justify-content:space-between}
+.logo-wrap{display:flex;align-items:center;gap:14px}
+.logo-wrap img{height:54px;max-width:210px;object-fit:contain}
+.logo-text{font-size:28px;font-weight:800;letter-spacing:.5px;color:var(--navy)}
+.navlinks{display:flex;align-items:center;gap:38px;font-size:14px;font-weight:700;color:#253852}
+.btn{background:var(--blue);color:white;padding:14px 24px;border-radius:6px;font-weight:800;display:inline-block;border:1px solid var(--blue)}
+.btn.light{background:white;color:var(--blue);border:1px solid #a9c3e2}
+.hero{background:linear-gradient(135deg,#ffffff 0%,#f2f7ff 100%);padding:125px 0 115px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:95px;align-items:center}
+.kicker{font-size:12px;letter-spacing:2.2px;text-transform:uppercase;color:var(--blue);font-weight:900;margin-bottom:18px}
+h1{font-size:66px;line-height:1.05;color:var(--navy);letter-spacing:-2px;margin-bottom:26px;max-width:760px}
+.hero p{font-size:18px;color:var(--muted);max-width:640px;margin-bottom:34px}
+.actions{display:flex;gap:16px;flex-wrap:wrap}
+.info-card{background:white;border:1px solid var(--line);border-radius:18px;padding:42px;box-shadow:0 24px 70px rgba(8,43,95,.08)}
+.info-card h3{font-size:22px;color:var(--navy);margin-bottom:22px}
+.info-row{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:17px 0;font-size:15px;color:var(--muted)}
+.info-row:last-child{border-bottom:0}
+.info-row b{color:var(--navy)}
+.strip{background:#fff;border-bottom:1px solid var(--line);padding:18px 0}
+.strip .wrap{display:flex;justify-content:center;gap:44px;flex-wrap:wrap;font-size:13px;font-weight:900;letter-spacing:1px;color:var(--navy)}
+section{padding:105px 0}
+.section-head{max-width:760px;margin-bottom:48px}
+.section-head h2{font-size:46px;line-height:1.1;color:var(--navy);letter-spacing:-1px;margin-bottom:16px}
+.section-head p{font-size:17px;color:var(--muted)}
+.products{background:var(--soft)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:36px;min-height:220px;transition:.18s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 45px rgba(8,43,95,.08)}
+.num{width:46px;height:46px;border-radius:12px;background:#edf5ff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:24px}
+.card h3{font-size:22px;color:var(--navy);margin-bottom:10px}
+.card p{font-size:15px;color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1fr .9fr;gap:90px;align-items:center}
+.about h2{font-size:46px;line-height:1.12;color:var(--navy);letter-spacing:-1px;margin-bottom:22px}
+.about p{font-size:17px;color:var(--muted);max-width:650px}
+.points{margin-top:30px;display:grid;gap:15px;color:#34435b}
+.points div{position:relative;padding-left:25px}
+.points div:before{content:"";width:8px;height:8px;background:var(--blue);border-radius:50%;position:absolute;left:0;top:10px}
+.quiet-box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:42px;box-shadow:0 18px 55px rgba(8,43,95,.06)}
+.quiet-box h3{font-size:26px;color:var(--navy);margin-bottom:14px}
+.quiet-box p{color:var(--muted)}
+.trade{background:#fff}
+.trade-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.trade-card{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:34px;text-align:center}
+.trade-card h3{color:var(--navy);font-size:20px;margin-bottom:8px}
+.trade-card p{color:var(--muted);font-size:14px}
+.contact{background:linear-gradient(180deg,#fff,#f7faff)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+.contact h2{font-size:46px;line-height:1.12;color:var(--navy);letter-spacing:-1px;margin-bottom:18px}
+.contact p{font-size:17px;color:var(--muted);max-width:560px}
+.contact-info{margin-top:32px;display:grid;gap:16px;color:#34435b}
+.form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:40px;box-shadow:0 24px 70px rgba(8,43,95,.08)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-input,textarea,select{width:100%;padding:14px;border:1px solid var(--line);border-radius:8px;margin-bottom:16px;font-size:15px}
-textarea{min-height:120px}
-button{width:100%;border:0;background:var(--blue);color:white;padding:15px;border-radius:8px;font-weight:800;font-size:15px}
-footer{background:#071b35;color:#b9c8dc;padding:42px 0;font-size:14px}
-.footer-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+input,select,textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:15px;font-size:15px;margin-bottom:16px;outline:none}
+textarea{min-height:125px}
+button{width:100%;border:0;background:var(--blue);color:white;padding:16px;border-radius:8px;font-size:15px;font-weight:900}
+footer{background:#071b35;color:#b9c7db;padding:44px 0;font-size:14px}
+.footer-grid{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap}
 footer b{color:white}
-@media(max-width:900px){
+@media(max-width:1000px){
   .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr 1fr}
   .trade-grid{grid-template-columns:1fr 1fr}
-  h1{font-size:42px}
+  h1{font-size:48px}
   .navlinks{display:none}
 }
-@media(max-width:560px){
+@media(max-width:620px){
+  .wrap{padding:0 24px}
+  h1{font-size:40px}
   .grid,.trade-grid,.form-row{grid-template-columns:1fr}
-  h1{font-size:36px}
-  section{padding:60px 0}
+  section{padding:72px 0}
 }
 </style>
 </head>
@@ -87,8 +97,9 @@ footer b{color:white}
 
 <header>
   <div class="wrap nav">
-    <div class="logo">
-      <img src="logo.png" alt="Vigolix Logo">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Vigolix Logo" onerror="this.style.display='none';document.getElementById('fallbackLogo').style.display='block';">
+      <div id="fallbackLogo" class="logo-text" style="display:none;">Vigolix</div>
     </div>
     <nav class="navlinks">
       <a href="#products">Products</a>
@@ -105,25 +116,25 @@ footer b{color:white}
   <div class="wrap hero-grid">
     <div>
       <div class="kicker">Canadian PEX Supply</div>
-      <h1>Certified PEX products for trade supply.</h1>
+      <h1>PEX products for trade supply.</h1>
       <p>Vigolix imports and supplies selected PEX fittings, valves, manifolds, and accessories for trade-focused customers across Canada.</p>
-      <div class="hero-actions">
+      <div class="actions">
         <a class="btn" href="#contact">Request Trade Pricing</a>
-        <a class="btn alt" href="#products">View Products</a>
+        <a class="btn light" href="#products">View Products</a>
       </div>
     </div>
 
-    <div class="panel">
+    <div class="info-card">
       <h3>Product Information</h3>
-      <div class="line"><span>Catalogue</span><b>Available on request</b></div>
-      <div class="line"><span>Pricing</span><b>Trade only</b></div>
-      <div class="line"><span>Supply Focus</span><b>PEX systems</b></div>
-      <div class="line"><span>Location</span><b>Calgary, AB</b></div>
+      <div class="info-row"><span>Catalogue</span><b>Available on request</b></div>
+      <div class="info-row"><span>Pricing</span><b>Trade only</b></div>
+      <div class="info-row"><span>Supply Focus</span><b>PEX systems</b></div>
+      <div class="info-row"><span>Location</span><b>Calgary, AB</b></div>
     </div>
   </div>
 </section>
 
-<div class="trust">
+<div class="strip">
   <div class="wrap">
     <span>PEX FITTINGS</span>
     <span>VALVES</span>
@@ -135,30 +146,30 @@ footer b{color:white}
 
 <section id="products" class="products">
   <div class="wrap">
-    <div class="section-title">
+    <div class="section-head">
       <div class="kicker">Product Categories</div>
       <h2>PEX fittings and components.</h2>
       <p>Focused product categories for plumbing supply, contractor use, and trade distribution.</p>
     </div>
 
     <div class="grid">
-      <div class="card"><div class="icon">01</div><h3>F2159 Crimp Fittings</h3><p>Insert and crimp fittings for common PEX-B system applications.</p></div>
-      <div class="card"><div class="icon">02</div><h3>F2159 Stop Fittings</h3><p>Stop-style fittings and selected crimp-system configurations.</p></div>
-      <div class="card"><div class="icon">03</div><h3>F1960 Expansion Fittings</h3><p>Expansion fittings for PEX-A style applications and related systems.</p></div>
-      <div class="card"><div class="icon">04</div><h3>PPSU Manifolds</h3><p>Multi-port distribution products for plumbing system layouts.</p></div>
-      <div class="card"><div class="icon">05</div><h3>PEX Valves</h3><p>Selected valve options for PEX plumbing installations.</p></div>
-      <div class="card"><div class="icon">06</div><h3>PEX Accessories</h3><p>Installation accessories, clamps, supports, plugs, and related items.</p></div>
+      <div class="card"><div class="num">01</div><h3>F2159 Crimp Fittings</h3><p>Insert and crimp fittings for common PEX-B system applications.</p></div>
+      <div class="card"><div class="num">02</div><h3>F2159 Stop Fittings</h3><p>Stop-style fittings and selected crimp-system configurations.</p></div>
+      <div class="card"><div class="num">03</div><h3>F1960 Expansion Fittings</h3><p>Expansion fittings for PEX-A style applications and related systems.</p></div>
+      <div class="card"><div class="num">04</div><h3>PPSU Manifolds</h3><p>Multi-port distribution products for plumbing system layouts.</p></div>
+      <div class="card"><div class="num">05</div><h3>PEX Valves</h3><p>Selected valve options for PEX plumbing installations.</p></div>
+      <div class="card"><div class="num">06</div><h3>PEX Accessories</h3><p>Installation accessories, clamps, supports, plugs, and related items.</p></div>
     </div>
   </div>
 </section>
 
-<section id="about">
+<section id="about" class="about">
   <div class="wrap about-grid">
     <div>
       <div class="kicker">About Vigolix</div>
-      <h2 style="font-size:42px;color:var(--blue);line-height:1.15;margin-bottom:18px;">Importer and supplier for Canadian trade customers.</h2>
-      <p style="color:var(--muted);font-size:17px;">Vigolix focuses on selected PEX plumbing products for trade-focused customers. Product details, catalogue information, and pricing are provided upon request.</p>
-      <div class="bullets">
+      <h2>Importer and supplier for Canadian trade customers.</h2>
+      <p>Vigolix focuses on selected PEX plumbing products for trade-focused customers. Product details, catalogue information, and pricing are provided upon request.</p>
+      <div class="points">
         <div>Trade-focused product supply</div>
         <div>Selected PEX fittings and components</div>
         <div>Catalogue and pricing available upon request</div>
@@ -166,7 +177,7 @@ footer b{color:white}
       </div>
     </div>
 
-    <div class="about-box">
+    <div class="quiet-box">
       <h3>Simple. Focused. Trade-ready.</h3>
       <p>No public price list. No retail clutter. Vigolix is built for product inquiries, trade supply conversations, and long-term B2B relationships.</p>
     </div>
@@ -175,7 +186,7 @@ footer b{color:white}
 
 <section id="trade" class="trade">
   <div class="wrap">
-    <div class="section-title">
+    <div class="section-head">
       <div class="kicker">Trade Accounts</div>
       <h2>Who we supply.</h2>
       <p>Vigolix is positioned for customers who purchase plumbing products for resale, installation, or project supply.</p>
@@ -190,13 +201,13 @@ footer b{color:white}
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="contact">
   <div class="wrap contact-grid">
     <div>
       <div class="kicker">Contact</div>
-      <h2 style="font-size:42px;color:var(--blue);line-height:1.15;margin-bottom:16px;">Request product information.</h2>
-      <p style="color:var(--muted);font-size:17px;">For catalogue, pricing, or product availability, send your business details and product interest.</p>
-      <div class="info">
+      <h2>Request product information.</h2>
+      <p>For catalogue, pricing, or product availability, send your business details and product interest.</p>
+      <div class="contact-info">
         <div><b>Location:</b> Calgary, Alberta, Canada</div>
         <div><b>Email:</b> info@vigolix.com</div>
         <div><b>Phone:</b> (587) 438-8125</div>
