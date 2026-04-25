@@ -4,15 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VIGOLIX — PEX Products for Trade Supply | Calgary, Alberta</title>
-<meta name="description" content="VIGOLIX is a Canadian importer and supplier of premium PEX fittings, valves, manifolds, and accessories. Trade supply only. Calgary, Alberta.">
+<meta name="description" content="VIGOLIX is a Canadian importer and supplier of PEX fittings, valves, manifolds, and accessories. Trade supply only. Calgary, Alberta.">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap');
 
   :root {
     --navy: #0f1923;
     --dark: #1a2534;
-    --mid: #2c3e52;
-    --steel: #3d5166;
     --blue-accent: #2e6da4;
     --blue-light: #3d7fc0;
     --blue-pale: #e8f1f9;
@@ -26,794 +24,125 @@
     --font-body: 'Barlow', sans-serif;
   }
 
-  *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--white); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
 
-  body {
-    font-family: var(--font-body);
-    background: var(--white);
-    color: var(--text-primary);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ─── UTILITY ─── */
-  .container {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 0 40px;
-  }
-
-  /* ─── HEADER ─── */
-  header {
-    background: var(--navy);
-    border-bottom: 3px solid var(--blue-accent);
-    padding: 22px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo-wrap img {
-    height: 52px;
-    width: auto;
-    display: block;
-  }
-
-  .logo-fallback {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-  }
-
-  .logo-fallback .wordmark {
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: 2.1rem;
-    letter-spacing: 0.12em;
-    color: var(--white);
-    text-transform: uppercase;
-  }
-
-  .logo-fallback .tagline-small {
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--blue-light);
-    padding-bottom: 4px;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-  }
-
-  nav a {
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.72);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  /* HEADER */
+  header { background: var(--navy); border-bottom: 3px solid var(--blue-accent); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; }
+  .logo-wrap img { height: 80px; width: 80px; object-fit: contain; display: block; }
+  .logo-fallback { display: flex; align-items: baseline; gap: 6px; }
+  .logo-fallback .wordmark { font-family: var(--font-display); font-weight: 900; font-size: 2.1rem; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; }
+  .logo-fallback .tagline-small { font-family: var(--font-body); font-weight: 400; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-light); padding-bottom: 4px; }
+  nav { display: flex; align-items: center; gap: 36px; }
+  nav a { font-family: var(--font-body); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.72); text-decoration: none; transition: color 0.2s; }
   nav a:hover { color: var(--white); }
-
-  .nav-cta {
-    background: var(--blue-accent);
-    color: var(--white) !important;
-    padding: 9px 22px;
-    border-radius: 2px;
-    letter-spacing: 0.12em;
-    transition: background 0.2s !important;
-  }
-
+  .nav-cta { background: var(--blue-accent); color: var(--white) !important; padding: 9px 22px; border-radius: 2px; letter-spacing: 0.12em; transition: background 0.2s !important; }
   .nav-cta:hover { background: var(--blue-light) !important; }
 
-  /* ─── HERO ─── */
-  .hero {
-    background: var(--navy);
-    padding: 100px 0 88px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 42%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(46,109,164,0.12) 0%, rgba(46,109,164,0.04) 100%);
-    border-left: 1px solid rgba(46,109,164,0.2);
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--blue-accent) 0%, transparent 70%);
-  }
-
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .hero-eyebrow {
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.72rem;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: var(--blue-light);
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 2px;
-    background: var(--blue-accent);
-    flex-shrink: 0;
-  }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: clamp(3rem, 5.5vw, 5rem);
-    line-height: 1.0;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 28px;
-  }
-
-  .hero h1 span {
-    color: var(--blue-light);
-  }
-
-  .hero-desc {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.62);
-    max-width: 460px;
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--blue-accent);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 14px 30px;
-    border-radius: 2px;
-    transition: background 0.2s;
-    display: inline-block;
-  }
-
+  /* HERO */
+  .hero { background: var(--navy); padding: 100px 0 88px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 42%; height: 100%; background: linear-gradient(135deg, rgba(46,109,164,0.12) 0%, rgba(46,109,164,0.04) 100%); border-left: 1px solid rgba(46,109,164,0.2); }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--blue-accent) 0%, transparent 70%); }
+  .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .hero-eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 2px; background: var(--blue-accent); flex-shrink: 0; }
+  .hero h1 { font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 5.5vw, 5rem); line-height: 1.0; letter-spacing: 0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 28px; }
+  .hero h1 span { color: var(--blue-light); }
+  .hero-desc { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.62); max-width: 460px; margin-bottom: 40px; font-weight: 400; }
+  .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .btn-primary { background: var(--blue-accent); color: var(--white); font-family: var(--font-body); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 14px 30px; border-radius: 2px; transition: background 0.2s; display: inline-block; }
   .btn-primary:hover { background: var(--blue-light); }
-
-  .btn-ghost {
-    color: rgba(255,255,255,0.65);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.78rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.2s;
-  }
-
+  .btn-ghost { color: rgba(255,255,255,0.65); font-family: var(--font-body); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
   .btn-ghost:hover { color: var(--white); }
-
   .btn-ghost svg { transition: transform 0.2s; }
   .btn-ghost:hover svg { transform: translateX(4px); }
+  .hero-right { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
+  .hero-stat-block { border: 1px solid rgba(46,109,164,0.3); padding: 28px 36px; text-align: center; width: 200px; background: rgba(46,109,164,0.06); }
+  .hero-stat-num { font-family: var(--font-display); font-weight: 800; font-size: 2.4rem; color: var(--white); line-height: 1; letter-spacing: 0.04em; }
+  .hero-stat-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 6px; font-weight: 500; }
 
-  .hero-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 20px;
-  }
+  /* TRUST STRIP */
+  .trust-strip { background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.07); padding: 18px 0; }
+  .trust-inner { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+  .trust-item { font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding: 4px 28px; position: relative; }
+  .trust-item + .trust-item::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 12px; background: rgba(255,255,255,0.18); }
 
-  .hero-stat-block {
-    border: 1px solid rgba(46,109,164,0.3);
-    padding: 28px 36px;
-    text-align: center;
-    width: 200px;
-    background: rgba(46,109,164,0.06);
-  }
+  /* SECTIONS */
+  .section { padding: 96px 0; }
+  .section-alt { background: var(--off-white); }
+  .section-dark { background: var(--navy); }
+  .section-label { font-family: var(--font-body); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--blue-accent); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--blue-accent); flex-shrink: 0; }
+  .section-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.1rem, 3.5vw, 3rem); line-height: 1.08; letter-spacing: 0.02em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 18px; }
+  .section-dark .section-title { color: var(--white); }
+  .section-sub { font-size: 1rem; line-height: 1.7; color: var(--text-muted); max-width: 520px; margin-bottom: 56px; }
+  .section-dark .section-sub { color: rgba(255,255,255,0.55); }
 
-  .hero-stat-num {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 2.4rem;
-    color: var(--white);
-    line-height: 1;
-    letter-spacing: 0.04em;
-  }
+  /* PRODUCTS */
+  .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .product-card { background: var(--white); border: 1px solid var(--border); padding: 36px 28px; position: relative; transition: border-color 0.25s, box-shadow 0.25s; cursor: default; }
+  .product-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--blue-accent); transition: height 0.25s; }
+  .product-card:hover { border-color: rgba(46,109,164,0.35); box-shadow: 0 8px 32px rgba(15,25,35,0.08); }
+  .product-card:hover::before { height: 100%; }
+  .card-icon { width: 44px; height: 44px; background: var(--blue-pale); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+  .card-icon svg { width: 22px; height: 22px; stroke: var(--blue-accent); fill: none; stroke-width: 1.8; }
+  .card-title { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 12px; line-height: 1.2; }
+  .card-body { font-size: 0.9rem; line-height: 1.68; color: var(--text-muted); font-weight: 400; }
 
-  .hero-stat-label {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin-top: 6px;
-    font-weight: 500;
-  }
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .about-text p { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px; }
+  .about-facts { display: flex; flex-direction: column; gap: 20px; }
+  .fact-row { display: flex; align-items: flex-start; gap: 18px; padding: 22px 24px; background: var(--white); border: 1px solid var(--border); }
+  .fact-dot { width: 8px; height: 8px; background: var(--blue-accent); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+  .fact-content strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 4px; }
+  .fact-content p { font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); margin: 0; }
 
-  .hero-badge {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
-    padding: 14px 20px;
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    font-weight: 600;
-    align-self: stretch;
-    text-align: center;
-  }
+  /* POSITIONING */
+  .position-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); }
+  .position-item { background: var(--navy); padding: 44px 32px; text-align: center; transition: background 0.2s; }
+  .position-item:hover { background: rgba(46,109,164,0.1); }
+  .position-num { font-family: var(--font-display); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.24em; color: var(--blue-accent); text-transform: uppercase; margin-bottom: 14px; }
+  .position-text { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); line-height: 1.3; }
+  .position-sub { margin-top: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.42); line-height: 1.5; font-weight: 400; }
 
-  /* ─── TRUST STRIP ─── */
-  .trust-strip {
-    background: var(--dark);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    padding: 18px 0;
-  }
-
-  .trust-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
-  }
-
-  .trust-item {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    padding: 4px 28px;
-    position: relative;
-  }
-
-  .trust-item + .trust-item::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 12px;
-    background: rgba(255,255,255,0.18);
-  }
-
-  /* ─── SECTION SHARED ─── */
-  .section {
-    padding: 96px 0;
-  }
-
-  .section-alt {
-    background: var(--off-white);
-  }
-
-  .section-dark {
-    background: var(--navy);
-  }
-
-  .section-label {
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.7rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--blue-accent);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--blue-accent);
-    flex-shrink: 0;
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(2.1rem, 3.5vw, 3rem);
-    line-height: 1.08;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: var(--text-primary);
-    margin-bottom: 18px;
-  }
-
-  .section-dark .section-title {
-    color: var(--white);
-  }
-
-  .section-sub {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-    max-width: 520px;
-    margin-bottom: 56px;
-  }
-
-  .section-dark .section-sub {
-    color: rgba(255,255,255,0.55);
-  }
-
-  /* ─── PRODUCTS ─── */
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-
-  .product-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    padding: 36px 28px;
-    position: relative;
-    transition: border-color 0.25s, box-shadow 0.25s;
-    cursor: default;
-  }
-
-  .product-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 0;
-    background: var(--blue-accent);
-    transition: height 0.25s;
-  }
-
-  .product-card:hover {
-    border-color: rgba(46,109,164,0.35);
-    box-shadow: 0 8px 32px rgba(15,25,35,0.08);
-  }
-
-  .product-card:hover::before {
-    height: 100%;
-  }
-
-  .card-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--blue-pale);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-  }
-
-  .card-icon svg {
-    width: 22px;
-    height: 22px;
-    stroke: var(--blue-accent);
-    fill: none;
-    stroke-width: 1.8;
-  }
-
-  .card-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--text-primary);
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-
-  .card-body {
-    font-size: 0.9rem;
-    line-height: 1.68;
-    color: var(--text-muted);
-    font-weight: 400;
-  }
-
-  .card-note {
-    margin-top: 20px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--blue-accent);
-    font-weight: 600;
-  }
-
-  /* ─── ABOUT ─── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .about-text p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-  }
-
-  .about-legal {
-    margin-top: 32px;
-    padding: 20px 24px;
-    border-left: 3px solid var(--blue-accent);
-    background: var(--blue-pale);
-  }
-
-  .about-legal p {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin: 0;
-  }
-
-  .about-legal strong {
-    color: var(--text-primary);
-    font-weight: 700;
-  }
-
-  .about-facts {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .fact-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    padding: 22px 24px;
-    background: var(--white);
-    border: 1px solid var(--border);
-  }
-
-  .fact-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--blue-accent);
-    border-radius: 50%;
-    margin-top: 7px;
-    flex-shrink: 0;
-  }
-
-  .fact-content strong {
-    display: block;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.88rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-
-  .fact-content p {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin: 0;
-  }
-
-  /* ─── POSITIONING ─── */
-  .position-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .position-item {
-    background: var(--navy);
-    padding: 44px 32px;
-    text-align: center;
-  }
-
-  .position-item:hover {
-    background: rgba(46,109,164,0.1);
-  }
-
-  .position-num {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 0.7rem;
-    letter-spacing: 0.24em;
-    color: var(--blue-accent);
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .position-text {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--white);
-    line-height: 1.3;
-  }
-
-  .position-sub {
-    margin-top: 10px;
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.42);
-    line-height: 1.5;
-    font-weight: 400;
-  }
-
-  /* ─── CONTACT ─── */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .contact-info {
-    padding-top: 8px;
-  }
-
-  .contact-block {
-    margin-bottom: 36px;
-  }
-
-  .contact-block-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-
-  .contact-block-value {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--text-primary);
-    letter-spacing: 0.04em;
-  }
-
-  .contact-note {
-    margin-top: 40px;
-    padding: 20px 24px;
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    font-size: 0.88rem;
-    line-height: 1.65;
-    color: var(--text-muted);
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-  }
-
-  .form-group label {
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 600;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 12px 14px;
-    font-family: var(--font-body);
-    font-size: 0.93rem;
-    color: var(--text-primary);
-    transition: border-color 0.2s;
-    outline: none;
-    width: 100%;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--blue-accent);
-  }
-
-  .form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-
-  .form-submit {
-    background: var(--blue-accent);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    border: none;
-    padding: 15px 32px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background 0.2s;
-    align-self: flex-start;
-    margin-top: 4px;
-  }
-
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .contact-info { padding-top: 8px; }
+  .contact-block { margin-bottom: 36px; }
+  .contact-block-label { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 8px; }
+  .contact-block-value { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--text-primary); letter-spacing: 0.04em; }
+  .contact-note { margin-top: 40px; padding: 20px 24px; background: var(--off-white); border: 1px solid var(--border); font-size: 0.88rem; line-height: 1.65; color: var(--text-muted); }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  .form-group label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+  .form-group input, .form-group select, .form-group textarea { background: var(--white); border: 1px solid var(--border); border-radius: 2px; padding: 12px 14px; font-family: var(--font-body); font-size: 0.93rem; color: var(--text-primary); transition: border-color 0.2s; outline: none; width: 100%; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue-accent); }
+  .form-group textarea { min-height: 120px; resize: vertical; }
+  .form-submit { background: var(--blue-accent); color: var(--white); font-family: var(--font-body); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; border: none; padding: 15px 32px; border-radius: 2px; cursor: pointer; transition: background 0.2s; align-self: flex-start; margin-top: 4px; }
   .form-submit:hover { background: var(--blue-light); }
+  .form-disclaimer { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
 
-  .form-disclaimer {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
+  /* FOOTER */
+  footer { background: var(--navy); border-top: 3px solid var(--blue-accent); padding: 52px 0 36px; }
+  .footer-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 56px; margin-bottom: 44px; }
+  .footer-brand .wordmark { font-family: var(--font-display); font-weight: 900; font-size: 1.6rem; letter-spacing: 0.14em; color: var(--white); text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .footer-brand .footer-desc { font-size: 0.78rem; color: rgba(255,255,255,0.4); font-weight: 400; line-height: 1.5; }
+  .footer-brand .location { margin-top: 12px; font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; letter-spacing: 0.06em; }
+  .footer-col-title { font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 18px; }
+  .footer-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer-list li { font-size: 0.85rem; color: rgba(255,255,255,0.48); line-height: 1.4; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.32); line-height: 1.5; }
+  .footer-mark { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.22); font-weight: 600; }
 
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--navy);
-    border-top: 3px solid var(--blue-accent);
-    padding: 52px 0 36px;
-  }
+  .rule { border: none; border-top: 1px solid var(--border); margin: 0; }
 
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 56px;
-    margin-bottom: 44px;
-  }
-
-  .footer-brand .wordmark {
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: 1.6rem;
-    letter-spacing: 0.14em;
-    color: var(--white);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  .footer-brand .legal-name {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.4);
-    font-weight: 400;
-    line-height: 1.5;
-  }
-
-  .footer-brand .location {
-    margin-top: 12px;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.5);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-  }
-
-  .footer-col-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--blue-light);
-    margin-bottom: 18px;
-  }
-
-  .footer-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-  }
-
-  .footer-list li {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.48);
-    line-height: 1.4;
-  }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .footer-copy {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.32);
-    line-height: 1.5;
-  }
-
-  .footer-mark {
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.22);
-    font-weight: 600;
-  }
-
-  /* ─── DIVIDER ─── */
-  .rule {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 0;
-  }
-
-  /* ─── RESPONSIVE ─── */
+  /* RESPONSIVE */
   @media (max-width: 960px) {
     .container { padding: 0 24px; }
     .hero-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -825,7 +154,6 @@
     .footer-inner { grid-template-columns: 1fr; gap: 36px; }
     .section { padding: 72px 0; }
   }
-
   @media (max-width: 640px) {
     nav { display: none; }
     .hero { padding: 64px 0 60px; }
@@ -841,12 +169,11 @@
 </head>
 <body>
 
-<!-- ═══════════════ HEADER ═══════════════ -->
+<!-- HEADER -->
 <header>
   <div class="container">
     <div class="header-inner">
       <div class="logo-wrap">
-        <!-- Attempt to load logo.png; fallback to wordmark if not found -->
         <img src="logo.png" alt="VIGOLIX" onerror="this.style.display='none'; document.getElementById('logo-fb').style.display='flex';">
         <div class="logo-fallback" id="logo-fb" style="display:none;">
           <span class="wordmark">VIGOLIX</span>
@@ -862,7 +189,7 @@
   </div>
 </header>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-inner">
@@ -870,7 +197,7 @@
         <p class="hero-eyebrow">Canadian Importer &amp; Trade Supplier</p>
         <h1>PEX Products<br>for <span>Trade</span><br>Supply</h1>
         <p class="hero-desc">
-          VIGOLIX sources and supplies premium PEX fittings, valves, manifolds, and accessories to distributors, contractors, and wholesalers across Canada. Catalogue and pricing available to qualified trade accounts on request.
+          VIGOLIX supplies selected PEX fittings, valves, manifolds, and accessories to distributors, contractors, and wholesalers across Canada.
         </p>
         <div class="hero-actions">
           <a href="#contact" class="btn-primary">Request Trade Inquiry</a>
@@ -889,3 +216,257 @@
         </div>
         <div class="hero-stat-block">
           <div class="hero-stat-num">CA</div>
+          <div class="hero-stat-label">Calgary Based</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-inner">
+      <span class="trust-item">PEX Fittings</span>
+      <span class="trust-item">Valves</span>
+      <span class="trust-item">Manifolds</span>
+      <span class="trust-item">Accessories</span>
+      <span class="trust-item">Trade Supply</span>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="container">
+    <p class="section-label">Product Range</p>
+    <h2 class="section-title">Core Product Categories</h2>
+    <p class="section-sub">Selected PEX plumbing product categories for trade supply and distribution.</p>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12h4M17 12h4M7 12a5 5 0 0 1 10 0M7 12a5 5 0 0 0 10 0" stroke-linecap="round"/><circle cx="12" cy="12" r="1"/></svg>
+        </div>
+        <h3 class="card-title">PEX Fittings</h3>
+        <p class="card-body">Expansion and crimp-style PEX fittings for residential and light commercial applications.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 5v2M12 17v2M5 12h2M17 12h2M7.05 7.05l1.41 1.41M15.54 15.54l1.41 1.41M7.05 16.95l1.41-1.41M15.54 8.46l1.41-1.41"/></svg>
+        </div>
+        <h3 class="card-title">Valves</h3>
+        <p class="card-body">Ball valves and shutoff valves for PEX plumbing systems.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8V6M12 8V6M17 8V6M7 16v2M12 16v2M17 16v2"/></svg>
+        </div>
+        <h3 class="card-title">Manifolds</h3>
+        <p class="card-body">Multi-port PEX manifolds for water distribution systems.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="card-title">Accessories</h3>
+        <p class="card-body">Installation components including clamps, supports, and related accessories.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+  <div class="container">
+    <p class="section-label">About Vigolix</p>
+    <h2 class="section-title">Canadian Trade Supplier</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>VIGOLIX is a Calgary-based importer and trade supplier of PEX plumbing products, serving distributors, contractors, and wholesalers across Canada.</p>
+        <p>We supply selected products to meet Canadian market requirements and focus on long-term trade relationships.</p>
+      </div>
+      <div class="about-facts">
+        <div class="fact-row">
+          <div class="fact-dot"></div>
+          <div class="fact-content">
+            <strong>Importer Model</strong>
+            <p>VIGOLIX imports finished PEX plumbing products and supplies them to the Canadian trade market. We do not manufacture.</p>
+          </div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-dot"></div>
+          <div class="fact-content">
+            <strong>Canadian Supply Focus</strong>
+            <p>All supply and fulfillment is structured for Canadian distribution channels and trade accounts.</p>
+          </div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-dot"></div>
+          <div class="fact-content">
+            <strong>Trade Customers Only</strong>
+            <p>We supply distributors, wholesalers, and contractors. Not for direct consumer sale.</p>
+          </div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-dot"></div>
+          <div class="fact-content">
+            <strong>Calgary, Alberta</strong>
+            <p>Based and operating in Calgary, Alberta, Canada.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONING -->
+<section class="section section-dark">
+  <div class="container">
+    <p class="section-label" style="color: var(--blue-light);">How We Work</p>
+    <h2 class="section-title" style="color: var(--white); margin-bottom: 48px;">Business Positioning</h2>
+    <div class="position-grid">
+      <div class="position-item">
+        <p class="position-num">01</p>
+        <p class="position-text">Trade Supply Only</p>
+        <p class="position-sub">We work exclusively with verified business accounts.</p>
+      </div>
+      <div class="position-item">
+        <p class="position-num">02</p>
+        <p class="position-text">Controlled Product Access</p>
+        <p class="position-sub">Product information is shared based on business requirements.</p>
+      </div>
+      <div class="position-item">
+        <p class="position-num">03</p>
+        <p class="position-text">Trade Pricing</p>
+        <p class="position-sub">Pricing is provided directly to approved trade customers.</p>
+      </div>
+      <div class="position-item">
+        <p class="position-num">04</p>
+        <p class="position-text">B2B Relationships</p>
+        <p class="position-sub">Focused on long-term supply partnerships across Canada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Trade Inquiry</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p style="font-size:1rem; line-height:1.75; color: var(--text-secondary); margin-bottom: 36px;">
+          VIGOLIX accepts inquiries from distributors, wholesalers, and contractors. Submit your business details and product requirements to receive relevant information.
+        </p>
+        <div class="contact-block">
+          <p class="contact-block-label">Company</p>
+          <p class="contact-block-value">VIGOLIX</p>
+        </div>
+        <div class="contact-block">
+          <p class="contact-block-label">Location</p>
+          <p class="contact-block-value">Calgary, Alberta, Canada</p>
+        </div>
+        <div class="contact-note">
+          All inquiries are reviewed. Responses are provided to verified trade accounts. We do not respond to consumer purchase requests.
+        </div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="John" autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Smith" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company">Company / Organization</label>
+            <input type="text" id="company" name="company" placeholder="ABC Plumbing Supply Ltd.">
+          </div>
+          <div class="form-group">
+            <label for="email">Business Email</label>
+            <input type="email" id="email" name="email" placeholder="j.smith@company.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="type">Account Type</label>
+            <select id="type" name="type">
+              <option value="" disabled selected>Select account type</option>
+              <option>Distributor</option>
+              <option>Plumbing Wholesaler</option>
+              <option>Contractor</option>
+              <option>Retail Buyer</option>
+              <option>Other Trade Account</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Inquiry Details</label>
+            <textarea id="message" name="message" placeholder="Describe your product requirements or any questions regarding trade supply."></textarea>
+          </div>
+          <button type="button" class="form-submit" onclick="handleSubmit()">Submit Trade Inquiry</button>
+          <p class="form-disclaimer">By submitting this form you confirm you are a verified trade buyer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="wordmark">VIGOLIX</span>
+        <p class="footer-desc">PEX plumbing supply for trade customers</p>
+        <p class="location">Calgary, Alberta, Canada</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Products</p>
+        <ul class="footer-list">
+          <li>PEX Fittings</li>
+          <li>Valves</li>
+          <li>Manifolds</li>
+          <li>Accessories</li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Trade Supply</p>
+        <ul class="footer-list">
+          <li>Trade Accounts Only</li>
+          <li>B2B Relationships</li>
+          <li>Calgary Operations</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2021–2026 VIGOLIX. All rights reserved.</p>
+      <p class="footer-mark">Calgary · Alberta · Canada</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit() {
+    const fname = document.getElementById('fname').value.trim();
+    const company = document.getElementById('company').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!fname || !company || !email) {
+      alert('Please complete all required fields before submitting.');
+      return;
+    }
+    alert('Thank you for your inquiry. A VIGOLIX representative will be in touch.');
+  }
+</script>
+
+</body>
+</html>
