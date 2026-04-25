@@ -1,899 +1,240 @@
-Autocorrected to confirmingNone selected 
-
-Skip to content
-Using Gmail with screen readers
-1 of 145,505
-(no subject)
-Inbox
-
-sagar chaudhary <sc.chaudhary86@gmail.com>
-11:19 PM (0 minutes ago)
-to me
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vigolix — Certified PEX Products for Canadian Trade</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vigolix | PEX Plumbing Supply</title>
 <style>
-  :root {
-    --blue-dark: #0d2d6e;
-    --blue: #1a4fa8;
-    --blue-mid: #2563c4;
-    --blue-light: #e8f0fb;
-    --blue-pale: #f0f5ff;
-    --accent: #1a4fa8;
-    --text: #0f1f3d;
-    --text-mid: #3d5278;
-    --text-light: #7a90b8;
-    --border: #dce6f5;
-    --white: #ffffff;
-    --bg: #f7f9fd;
-  }
-
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--white);
-    color: var(--text);
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top:0; width:100%; z-index:100;
-    background: rgba(255,255,255,0.97);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 6%;
-    display: flex; align-items:center; justify-content:space-between;
-    height: 66px;
-  }
-
-  .logo {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700; font-size: 1.5rem;
-    letter-spacing: 0.04em; color: var(--blue-dark);
-  }
-  .logo span { color: var(--blue-mid); }
-
-  .nav-links { display:flex; gap:2.2rem; list-style:none; }
-  .nav-links a {
-    color: var(--text-mid); text-decoration:none;
-    font-size: 0.88rem; font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--blue); }
-
-  .nav-cta {
-    background: var(--blue) !important;
-    color: var(--white) !important;
-    padding: 0.5rem 1.3rem;
-    border-radius: 6px;
-    font-weight: 600 !important;
-    transition: background 0.2s !important;
-  }
-  .nav-cta:hover { background: var(--blue-dark) !important; }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(160deg, var(--white) 0%, var(--blue-pale) 50%, #ddeaff 100%);
-    display: flex; align-items: center;
-    padding: 110px 6% 70px;
-    position: relative; overflow: hidden;
-  }
-
-  .hero-bg-circle {
-    position: absolute; right: -5%; top: 5%;
-    width: 620px; height: 620px;
-    background: radial-gradient(circle, rgba(37,99,196,0.1) 0%, transparent 70%);
-    border-radius: 50%; pointer-events:none;
-  }
-
-  .hero-bg-circle2 {
-    position: absolute; left: 40%; bottom: -10%;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(26,79,168,0.07) 0%, transparent 70%);
-    border-radius: 50%; pointer-events:none;
-  }
-
-  .hero-inner {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: center;
-    max-width: 1200px; width: 100%;
-    position: relative; z-index:1;
-  }
-
-  .hero-badge {
-    display: inline-flex; align-items:center; gap:0.5rem;
-    background: var(--blue-light);
-    border: 1px solid rgba(26,79,168,0.2);
-    color: var(--blue); padding: 0.4rem 1rem;
-    border-radius: 20px; font-size: 0.75rem;
-    font-weight: 600; margin-bottom: 1.6rem;
-    animation: fadeUp 0.5s ease both;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.4rem, 4vw, 3.8rem);
-    font-weight: 700; line-height: 1.1;
-    color: var(--blue-dark); margin-bottom: 1.3rem;
-    animation: fadeUp 0.5s 0.1s ease both;
-  }
-
-  .hero h1 em { color: var(--blue-mid); font-style:normal; }
-
-  .hero p {
-    font-size: 1.05rem; font-weight: 400;
-    color: var(--text-mid); line-height: 1.75;
-    margin-bottom: 2.2rem;
-    animation: fadeUp 0.5s 0.2s ease both;
-  }
-
-  .hero-actions {
-    display:flex; gap:1rem; flex-wrap:wrap;
-    animation: fadeUp 0.5s 0.3s ease both;
-  }
-
-  .btn-primary {
-    background: var(--blue); color: var(--white);
-    padding: 0.85rem 1.9rem; border-radius: 8px;
-    font-weight: 600; font-size: 0.9rem;
-    text-decoration: none; border:none; cursor:pointer;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
-
-  .btn-secondary {
-    background: transparent; color: var(--blue);
-    padding: 0.85rem 1.9rem; border-radius: 8px;
-    font-weight: 600; font-size: 0.9rem;
-    text-decoration: none;
-    border: 1.5px solid rgba(26,79,168,0.3);
-    transition: border-color 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-  .btn-secondary:hover { border-color: var(--blue); transform: translateY(-2px); }
-
-  /* Hero card */
-  .hero-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2.2rem;
-    box-shadow: 0 8px 40px rgba(26,79,168,0.1);
-    animation: fadeUp 0.5s 0.2s ease both;
-  }
-
-  .hero-card-title {
-    font-size: 0.72rem; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-light); margin-bottom: 1.2rem;
-  }
-
-  .cert-list { display:flex; flex-direction:column; gap:0.8rem; }
-
-  .cert-item-row {
-    display:flex; align-items:center; justify-content:space-between;
-    padding: 0.9rem 1rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-  }
-
-  .cert-item-left { display:flex; align-items:center; gap:0.8rem; }
-
-  .cert-check {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: var(--blue-light);
-    display:flex; align-items:center; justify-content:center;
-    color: var(--blue); font-size: 0.8rem; font-weight:700;
-    flex-shrink:0;
-  }
-
-  .cert-item-name {
-    font-size: 0.88rem; font-weight: 600; color: var(--text);
-  }
-  .cert-item-desc { font-size: 0.75rem; color: var(--text-light); margin-top:1px; }
-
-  .cert-item-badge {
-    font-size: 0.68rem; font-weight: 700;
-    letter-spacing: 0.08em; text-transform:uppercase;
-    padding: 0.25rem 0.6rem;
-    background: var(--blue-light);
-    color: var(--blue); border-radius: 4px;
-    white-space:nowrap;
-  }
-
-  .hero-stats {
-    display:flex; gap:0; margin-top:1.5rem;
-    border: 1px solid var(--border); border-radius:10px;
-    overflow:hidden;
-  }
-
-  .hstat {
-    flex:1; padding: 1rem 0.8rem; text-align:center;
-    border-right: 1px solid var(--border);
-  }
-  .hstat:last-child { border-right:none; }
-
-  .hstat-num {
-    font-size: 1.3rem; font-weight:700; color: var(--blue);
-    line-height:1;
-  }
-  .hstat-label {
-    font-size: 0.68rem; color: var(--text-light);
-    text-transform:uppercase; letter-spacing:0.06em;
-    margin-top:0.3rem;
-  }
-
-  /* ── CERT STRIP ── */
-  .cert-strip {
-    background: var(--blue-dark);
-    padding: 1rem 6%;
-    display:flex; align-items:center;
-    justify-content:center; gap:2.5rem; flex-wrap:wrap;
-  }
-
-  .strip-item {
-    display:flex; align-items:center; gap:0.5rem;
-    font-size: 0.78rem; font-weight:600;
-    color: rgba(255,255,255,0.75);
-    letter-spacing:0.06em; text-transform:uppercase;
-  }
-
-  .strip-dot {
-    width:6px; height:6px; border-radius:50%;
-    background: #7bb3ff; flex-shrink:0;
-  }
-
-  /* ── SECTIONS ── */
-  section { padding: 90px 6%; }
-
-  .sec-label {
-    font-size: 0.72rem; font-weight:700;
-    letter-spacing:0.12em; text-transform:uppercase;
-    color: var(--blue); margin-bottom:0.7rem;
-  }
-
-  .sec-title {
-    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-    font-weight:700; color: var(--blue-dark);
-    line-height:1.15; margin-bottom:0.8rem;
-  }
-
-  .sec-sub {
-    font-size: 1rem; color: var(--text-mid);
-    font-weight:400; line-height:1.75;
-    max-width:520px;
-  }
-
-  /* ── PRODUCTS ── */
-  .products { background: var(--bg); }
-
-  .products-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap:1.2rem; margin-top:3rem;
-  }
-
-  .product-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.8rem;
-    transition: box-shadow 0.25s, transform 0.2s, border-color 0.2s;
-  }
-  .product-card:hover {
-    box-shadow: 0 8px 30px rgba(26,79,168,0.12);
-    transform: translateY(-3px);
-    border-color: rgba(26,79,168,0.25);
-  }
-
-  .prod-icon {
-    width: 46px; height: 46px; border-radius: 10px;
-    background: var(--blue-light);
-    display:flex; align-items:center; justify-content:center;
-    font-size: 1.3rem; margin-bottom: 1.1rem;
-  }
-
-  .product-card h3 {
-    font-size: 1.05rem; font-weight:700;
-    color: var(--blue-dark); margin-bottom:0.5rem;
-  }
-
-  .product-card p {
-    font-size: 0.87rem; color: var(--text-mid);
-    line-height:1.65; margin-bottom:1.1rem;
-  }
-
-  .tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
-  .tag {
-    font-size:0.68rem; font-weight:600;
-    letter-spacing:0.06em; text-transform:uppercase;
-    padding: 0.22rem 0.55rem;
-    border: 1px solid var(--border);
-    color: var(--text-light); border-radius:4px;
-  }
-  .tag.blue {
-    border-color: rgba(26,79,168,0.25);
-    color: var(--blue);
-    background: var(--blue-light);
-  }
-
-  /* ── WHY ── */
-  .why-grid {
-    display:grid; grid-template-columns: 1fr 1fr;
-    gap:5rem; align-items:center; margin-top:3rem;
-  }
-
-  .why-list { display:flex; flex-direction:column; gap:2rem; }
-
-  .why-item { display:flex; gap:1.2rem; }
-
-  .why-num {
-    width:36px; height:36px; border-radius:8px;
-    background: var(--blue-light);
-    color: var(--blue); font-weight:700; font-size:0.85rem;
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
-  }
-
-  .why-item h4 {
-    font-size:1rem; font-weight:700;
-    color: var(--blue-dark); margin-bottom:0.3rem;
-  }
-  .why-item p { font-size:0.87rem; color:var(--text-mid); line-height:1.65; }
-
-  .cert-visual {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 16px; padding: 2rem;
-    box-shadow: 0 4px 24px rgba(26,79,168,0.08);
-  }
-
-  .cert-visual-title {
-    font-size:0.72rem; font-weight:700;
-    letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--text-light); margin-bottom:1.2rem;
-  }
-
-  .cv-row {
-    display:flex; align-items:center; justify-content:space-between;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .cv-row:last-child { border-bottom:none; }
-
-  .cv-left { display:flex; align-items:center; gap:0.8rem; }
-  .cv-dot { width:8px; height:8px; border-radius:50%; background:var(--blue); flex-shrink:0; }
-  .cv-name { font-size:0.9rem; font-weight:600; color:var(--text); }
-  .cv-desc { font-size:0.75rem; color:var(--text-light); }
-  .cv-badge {
-    font-size:0.68rem; font-weight:700; letter-spacing:0.07em;
-    text-transform:uppercase; padding:0.25rem 0.65rem;
-    background:#e8f5e9; color:#2e7d32; border-radius:4px;
-  }
-
-  /* ── TRADE ── */
-  .trade { background: var(--bg); }
-
-  .trade-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap:1.2rem; margin-top:3rem;
-  }
-
-  .trade-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px; padding: 1.8rem;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  .trade-card:hover {
-    box-shadow: 0 6px 24px rgba(26,79,168,0.1);
-    transform: translateY(-2px);
-  }
-
-  .trade-icon {
-    font-size:1.8rem; margin-bottom:1rem;
-  }
-
-  .trade-card h4 {
-    font-size:1rem; font-weight:700;
-    color:var(--blue-dark); margin-bottom:0.4rem;
-  }
-  .trade-card p { font-size:0.85rem; color:var(--text-mid); line-height:1.65; }
-
-  /* ── CONTACT ── */
-  .contact-wrap {
-    display:grid; grid-template-columns: 1fr 1.2fr;
-    gap:5rem; margin-top:3rem; align-items:start;
-  }
-
-  .contact-info p {
-    font-size:0.97rem; color:var(--text-mid);
-    line-height:1.8; margin-bottom:2rem;
-  }
-
-  .contact-detail { display:flex; flex-direction:column; gap:1rem; }
-
-  .contact-row {
-    display:flex; align-items:center; gap:1rem;
-    font-size:0.88rem; color:var(--text-mid);
-  }
-  .contact-row .cicon {
-    width:34px; height:34px; border-radius:8px;
-    background: var(--blue-light);
-    display:flex; align-items:center; justify-content:center;
-    font-size:0.9rem; flex-shrink:0;
-  }
-  .contact-row a { color:var(--blue); text-decoration:none; }
-  .contact-row a:hover { text-decoration:underline; }
-
-  .form-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 16px; padding: 2.5rem;
-    box-shadow: 0 4px 24px rgba(26,79,168,0.08);
-  }
-
-  .form-card h3 {
-    font-size:1.3rem; font-weight:700;
-    color:var(--blue-dark); margin-bottom:1.5rem;
-  }
-
-  .form-group { margin-bottom:1.1rem; }
-
-  .form-group label {
-    display:block; font-size:0.75rem; font-weight:600;
-    letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--text-mid); margin-bottom:0.4rem;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width:100%;
-    background: var(--bg);
-    border: 1.5px solid var(--border);
-    color: var(--text); padding: 0.75rem 1rem;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem; border-radius: 8px;
-    transition: border-color 0.2s;
-    outline:none;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--blue); }
-
-  .form-group textarea { resize:vertical; min-height:90px; }
-  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--blue-dark);
-    padding: 2.5rem 6%;
-    display:flex; align-items:center;
-    justify-content:space-between; flex-wrap:wrap; gap:1rem;
-  }
-
-  .footer-logo {
-    font-weight:700; font-size:1.4rem;
-    letter-spacing:0.04em; color:var(--white);
-  }
-  .footer-logo span { color:#7bb3ff; }
-
-  footer p { font-size:0.8rem; color:rgba(255,255,255,0.5); }
-
-  .footer-certs { display:flex; gap:0.7rem; }
-  .footer-cert {
-    font-size:0.68rem; font-weight:700;
-    letter-spacing:0.08em; text-transform:uppercase;
-    padding:0.3rem 0.7rem;
-    border: 1px solid rgba(255,255,255,0.15);
-    color:rgba(255,255,255,0.6); border-radius:4px;
-  }
-
-  /* ── ANIM ── */
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(18px); }
-    to { opacity:1; transform:translateY(0); }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width:900px) {
-    .hero-inner { grid-template-columns:1fr; }
-    .why-grid { grid-template-columns:1fr; }
-    .contact-wrap { grid-template-columns:1fr; }
-    .nav-links { display:none; }
-    .hero-card { display:none; }
-  }
-  @media (max-width:600px) {
-    .form-row { grid-template-columns:1fr; }
-    .hero-stats { flex-wrap:wrap; }
-  }
+:root{
+  --blue:#0b3c79;
+  --blue2:#1559aa;
+  --light:#f5f8fc;
+  --line:#dbe5f1;
+  --text:#18243a;
+  --muted:#5b6b84;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:white;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 28px}
+header{height:86px;border-bottom:1px solid var(--line);background:white;position:sticky;top:0;z-index:10}
+.nav{height:86px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:44px;max-width:170px;object-fit:contain}
+.navlinks{display:flex;align-items:center;gap:34px;font-size:14px;font-weight:700;color:#34445c}
+.btn{background:var(--blue);color:white;padding:13px 22px;border-radius:6px;font-weight:700;display:inline-block}
+.btn.alt{background:white;color:var(--blue);border:1px solid #aac2df}
+.hero{background:linear-gradient(135deg,#f7fbff,#eaf3ff);padding:100px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.kicker{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:18px}
+h1{font-size:58px;line-height:1.08;color:var(--blue);letter-spacing:-1.5px;margin-bottom:22px}
+.hero p{font-size:18px;color:var(--muted);max-width:610px;margin-bottom:32px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:34px;box-shadow:0 20px 55px rgba(20,60,110,.10)}
+.panel h3{color:var(--blue);margin-bottom:18px}
+.line{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:14px 0;color:#34445c;font-size:14px}
+.line b{color:var(--blue)}
+.trust{background:var(--blue);color:white;padding:16px 0;font-size:13px;font-weight:700;letter-spacing:.8px}
+.trust .wrap{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+section{padding:86px 0}
+.section-title{max-width:650px;margin-bottom:42px}
+.section-title h2{font-size:42px;line-height:1.15;color:var(--blue);margin-bottom:14px}
+.section-title p{color:var(--muted);font-size:17px}
+.products{background:var(--light)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:white;border:1px solid var(--line);border-radius:14px;padding:28px;min-height:185px;transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 35px rgba(10,50,100,.08)}
+.icon{width:42px;height:42px;border-radius:10px;background:#e8f2ff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:20px}
+.card h3{color:var(--blue);font-size:20px;margin-bottom:9px}
+.card p{color:var(--muted);font-size:15px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-box{background:var(--blue);color:white;border-radius:18px;padding:38px}
+.about-box h3{font-size:24px;margin-bottom:18px}
+.about-box p{color:#d8e8fb}
+.bullets{margin-top:24px;display:grid;gap:14px}
+.bullets div{padding-left:26px;position:relative;color:#42516a}
+.bullets div:before{content:"";width:8px;height:8px;background:var(--blue);border-radius:50%;position:absolute;left:0;top:10px}
+.trade{background:var(--light)}
+.trade-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.trade-card{background:white;border:1px solid var(--line);border-radius:14px;padding:26px;text-align:center}
+.trade-card h3{font-size:18px;color:var(--blue);margin-bottom:8px}
+.trade-card p{font-size:14px;color:var(--muted)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px}
+.info{display:grid;gap:18px;margin-top:28px;color:#42516a}
+.form{background:white;border:1px solid var(--line);border-radius:18px;padding:34px;box-shadow:0 18px 45px rgba(10,50,100,.08)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+input,textarea,select{width:100%;padding:14px;border:1px solid var(--line);border-radius:8px;margin-bottom:16px;font-size:15px}
+textarea{min-height:120px}
+button{width:100%;border:0;background:var(--blue);color:white;padding:15px;border-radius:8px;font-weight:800;font-size:15px}
+footer{background:#071b35;color:#b9c8dc;padding:42px 0;font-size:14px}
+.footer-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer b{color:white}
+@media(max-width:900px){
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr}
+  .trade-grid{grid-template-columns:1fr 1fr}
+  h1{font-size:42px}
+  .navlinks{display:none}
+}
+@media(max-width:560px){
+  .grid,.trade-grid,.form-row{grid-template-columns:1fr}
+  h1{font-size:36px}
+  section{padding:60px 0}
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Vigo<span>lix</span></div>
-  <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#trade">Trade Accounts</a></li>
-    <li><a href="#contact" class="nav-cta">Request a Quote</a></li>
-  </ul>
-</nav>
+<header>
+  <div class="wrap nav">
+    <div class="logo">
+      <img src="logo.png" alt="Vigolix Logo">
+    </div>
+    <nav class="navlinks">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#trade">Trade Accounts</a>
+      <a class="btn" href="#contact">Request Pricing</a>
+    </nav>
+  </div>
+</header>
 
-<!-- HERO -->
+<main>
+
 <section class="hero">
-  <div class="hero-bg-circle"></div>
-  <div class="hero-bg-circle2"></div>
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-badge">🇨🇦 Canadian Authorized Importer &amp; Distributor</div>
-      <h1>Certified <em>PEX Products</em> for Canadian Trade</h1>
-      <p>Vigolix supplies cUPC-certified PEX fittings, valves, and manifolds to distributors, mechanical contractors, and wholesalers across Canada. IAPMO listed. Competitively priced. Ready to ship.</p>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Canadian PEX Supply</div>
+      <h1>Certified PEX products for trade supply.</h1>
+      <p>Vigolix imports and supplies selected PEX fittings, valves, manifolds, and accessories for trade-focused customers across Canada.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Request Trade Pricing</a>
-        <a href="#products" class="btn-secondary">View Catalogue</a>
+        <a class="btn" href="#contact">Request Trade Pricing</a>
+        <a class="btn alt" href="#products">View Products</a>
       </div>
     </div>
 
-    <div class="hero-card">
-      <div class="hero-card-title">Certifications &amp; Compliance</div>
-      <div class="cert-list">
-        <div class="cert-item-row">
-          <div class="cert-item-left">
-            <div class="cert-check">✓</div>
-            <div>
-              <div class="cert-item-name">IAPMO cUPC — File #10405</div>
-              <div class="cert-item-desc">All PEX Fittings</div>
-            </div>
-          </div>
-          <div class="cert-item-badge">Active</div>
-        </div>
-        <div class="cert-item-row">
-          <div class="cert-item-left">
-            <div class="cert-check">✓</div>
-            <div>
-              <div class="cert-item-name">ASTM F1960-2024</div>
-              <div class="cert-item-desc">Expansion PEX — Latest Standard</div>
-            </div>
-          </div>
-          <div class="cert-item-badge">Compliant</div>
-        </div>
-        <div class="cert-item-row">
-          <div class="cert-item-left">
-            <div class="cert-check">✓</div>
-            <div>
-              <div class="cert-item-name">ASTM F2159</div>
-              <div class="cert-item-desc">Insert / Crimp PEX Fittings</div>
-            </div>
-          </div>
-          <div class="cert-item-badge">Compliant</div>
-        </div>
-        <div class="cert-item-row">
-          <div class="cert-item-left">
-            <div class="cert-check">✓</div>
-            <div>
-              <div class="cert-item-name">NSF/ANSI/CAN 61</div>
-              <div class="cert-item-desc">Potable Water Listed</div>
-            </div>
-          </div>
-          <div class="cert-item-badge">Listed</div>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="hstat">
-          <div class="hstat-num">cUPC</div>
-          <div class="hstat-label">Certified</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-num">#10405</div>
-          <div class="hstat-label">IAPMO File</div>
-        </div>
-        <div class="hstat">
-          <div class="hstat-num">2024</div>
-          <div class="hstat-label">Standard</div>
-        </div>
-      </div>
+    <div class="panel">
+      <h3>Product Information</h3>
+      <div class="line"><span>Catalogue</span><b>Available on request</b></div>
+      <div class="line"><span>Pricing</span><b>Trade only</b></div>
+      <div class="line"><span>Supply Focus</span><b>PEX systems</b></div>
+      <div class="line"><span>Location</span><b>Calgary, AB</b></div>
     </div>
   </div>
 </section>
 
-<!-- CERT STRIP -->
-<div class="cert-strip">
-  <div class="strip-item"><div class="strip-dot"></div> IAPMO cUPC Certified</div>
-  <div class="strip-item"><div class="strip-dot"></div> ASTM F1960-2024</div>
-  <div class="strip-item"><div class="strip-dot"></div> ASTM F2159</div>
-  <div class="strip-item"><div class="strip-dot"></div> NSF/ANSI/CAN 61</div>
-  <div class="strip-item"><div class="strip-dot"></div> 2288267 Alberta Ltd.</div>
+<div class="trust">
+  <div class="wrap">
+    <span>PEX FITTINGS</span>
+    <span>VALVES</span>
+    <span>MANIFOLDS</span>
+    <span>ACCESSORIES</span>
+    <span>TRADE SUPPLY</span>
+  </div>
 </div>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <div class="sec-label">Product Catalogue</div>
-  <div class="sec-title">PEX Fittings &amp; Systems</div>
-  <p class="sec-sub">Full range of certified PEX products for residential and commercial plumbing and radiant heating applications across Canada.</p>
+<section id="products" class="products">
+  <div class="wrap">
+    <div class="section-title">
+      <div class="kicker">Product Categories</div>
+      <h2>PEX fittings and components.</h2>
+      <p>Focused product categories for plumbing supply, contractor use, and trade distribution.</p>
+    </div>
 
-  <div class="products-grid">
-    <div class="product-card">
-      <div class="prod-icon">⬡</div>
-      <h3>Expansion PEX Fittings</h3>
-      <p>Couplings, elbows, tees, reducers, plugs, male adapters, and swivel fittings. Full size range 3/8" to 2".</p>
-      <div class="tags">
-        <span class="tag blue">ASTM F1960-2024</span>
-        <span class="tag blue">cUPC</span>
-        <span class="tag">3/8" – 2"</span>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="prod-icon">◈</div>
-      <h3>Insert / Crimp Fittings</h3>
-      <p>Full range of insert and crimp fittings for PEX-B applications, compatible with standard crimp rings and tools.</p>
-      <div class="tags">
-        <span class="tag blue">ASTM F2159</span>
-        <span class="tag blue">cUPC</span>
-        <span class="tag">1/4" – 1"</span>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="prod-icon">⊞</div>
-      <h3>Manifolds &amp; Distribution</h3>
-      <p>PEX manifolds for radiant heating and plumbing distribution. Multiple port configurations available.</p>
-      <div class="tags">
-        <span class="tag blue">NSF 61</span>
-        <span class="tag blue">cUPC</span>
-        <span class="tag">Multi-port</span>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="prod-icon">⊙</div>
-      <h3>Valves &amp; Controls</h3>
-      <p>Ball valves, shut-off valves, and flow control fittings compatible with PEX expansion and crimp systems.</p>
-      <div class="tags">
-        <span class="tag blue">NSF 61</span>
-        <span class="tag blue">cUPC</span>
-        <span class="tag">Brass &amp; Poly</span>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="prod-icon">⬟</div>
-      <h3>Expansion Sleeves</h3>
-      <p>Full size range 3/8" through 2" sleeves for F1960 expansion fittings — matching Vigolix fitting line.</p>
-      <div class="tags">
-        <span class="tag blue">ASTM F1960-2024</span>
-        <span class="tag">3/8" – 2"</span>
-      </div>
-    </div>
-    <div class="product-card">
-      <div class="prod-icon">📦</div>
-      <h3>Custom &amp; Private Label</h3>
-      <p>Private label and custom model numbering for distributors and buying groups requiring tailored catalogues.</p>
-      <div class="tags">
-        <span class="tag">Private Label</span>
-        <span class="tag">Custom MOQ</span>
-        <span class="tag">OEM</span>
-      </div>
+    <div class="grid">
+      <div class="card"><div class="icon">01</div><h3>F2159 Crimp Fittings</h3><p>Insert and crimp fittings for common PEX-B system applications.</p></div>
+      <div class="card"><div class="icon">02</div><h3>F2159 Stop Fittings</h3><p>Stop-style fittings and selected crimp-system configurations.</p></div>
+      <div class="card"><div class="icon">03</div><h3>F1960 Expansion Fittings</h3><p>Expansion fittings for PEX-A style applications and related systems.</p></div>
+      <div class="card"><div class="icon">04</div><h3>PPSU Manifolds</h3><p>Multi-port distribution products for plumbing system layouts.</p></div>
+      <div class="card"><div class="icon">05</div><h3>PEX Valves</h3><p>Selected valve options for PEX plumbing installations.</p></div>
+      <div class="card"><div class="icon">06</div><h3>PEX Accessories</h3><p>Installation accessories, clamps, supports, plugs, and related items.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="sec-label">Standards &amp; Compliance</div>
-  <div class="sec-title">Built to Canadian Code</div>
-
-  <div class="why-grid">
-    <div class="why-list">
-      <div class="why-item">
-        <div class="why-num">01</div>
-        <div>
-          <h4>IAPMO cUPC Certified — File #10405</h4>
-          <p>All Vigolix PEX fittings are manufactured and listed under IAPMO File #10405, carrying cUPC certification recognized by building inspectors across all Canadian provinces.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">02</div>
-        <div>
-          <h4>ASTM F1960-2024 &amp; F2159</h4>
-          <p>Products conform to the latest ASTM standards for cold expansion and insert/crimp PEX fittings — the same standards referenced in the National Plumbing Code of Canada.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">03</div>
-        <div>
-          <h4>NSF/ANSI/CAN 61 — Potable Water</h4>
-          <p>NSF 61 listed products are certified safe for contact with drinking water, meeting Canadian provincial health authority and municipal water system requirements.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">04</div>
-        <div>
-          <h4>Alberta Registered Business</h4>
-          <p>Vigolix operates as 2288267 Alberta Ltd. — a registered Canadian company with full import authorization and trade documentation available upon request.</p>
-        </div>
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="kicker">About Vigolix</div>
+      <h2 style="font-size:42px;color:var(--blue);line-height:1.15;margin-bottom:18px;">Importer and supplier for Canadian trade customers.</h2>
+      <p style="color:var(--muted);font-size:17px;">Vigolix focuses on selected PEX plumbing products for trade-focused customers. Product details, catalogue information, and pricing are provided upon request.</p>
+      <div class="bullets">
+        <div>Trade-focused product supply</div>
+        <div>Selected PEX fittings and components</div>
+        <div>Catalogue and pricing available upon request</div>
+        <div>Based in Calgary, Alberta</div>
       </div>
     </div>
 
-    <div class="cert-visual">
-      <div class="cert-visual-title">Certification Summary</div>
-      <div class="cv-row">
-        <div class="cv-left">
-          <div class="cv-dot"></div>
-          <div>
-            <div class="cv-name">IAPMO / cUPC</div>
-            <div class="cv-desc">File #10405 — All PEX Fittings</div>
-          </div>
-        </div>
-        <div class="cv-badge">✓ Active</div>
-      </div>
-      <div class="cv-row">
-        <div class="cv-left">
-          <div class="cv-dot"></div>
-          <div>
-            <div class="cv-name">ASTM F1960-2024</div>
-            <div class="cv-desc">Expansion Fittings — Latest Standard</div>
-          </div>
-        </div>
-        <div class="cv-badge">✓ Compliant</div>
-      </div>
-      <div class="cv-row">
-        <div class="cv-left">
-          <div class="cv-dot"></div>
-          <div>
-            <div class="cv-name">ASTM F2159</div>
-            <div class="cv-desc">Insert / Crimp Fittings</div>
-          </div>
-        </div>
-        <div class="cv-badge">✓ Compliant</div>
-      </div>
-      <div class="cv-row">
-        <div class="cv-left">
-          <div class="cv-dot"></div>
-          <div>
-            <div class="cv-name">NSF/ANSI/CAN 61</div>
-            <div class="cv-desc">Potable Water Contact</div>
-          </div>
-        </div>
-        <div class="cv-badge">✓ Listed</div>
-      </div>
-      <div class="cv-row">
-        <div class="cv-left">
-          <div class="cv-dot"></div>
-          <div>
-            <div class="cv-name">Alberta Business Reg.</div>
-            <div class="cv-desc">2288267 Alberta Ltd.</div>
-          </div>
-        </div>
-        <div class="cv-badge">✓ Registered</div>
-      </div>
+    <div class="about-box">
+      <h3>Simple. Focused. Trade-ready.</h3>
+      <p>No public price list. No retail clutter. Vigolix is built for product inquiries, trade supply conversations, and long-term B2B relationships.</p>
     </div>
   </div>
 </section>
 
-<!-- TRADE -->
-<section class="trade" id="trade">
-  <div class="sec-label">Trade Partners</div>
-  <div class="sec-title">Who We Supply</div>
-  <p class="sec-sub">Vigolix supplies trade accounts directly — better pricing, consistent supply, and full certification documentation with every order.</p>
+<section id="trade" class="trade">
+  <div class="wrap">
+    <div class="section-title">
+      <div class="kicker">Trade Accounts</div>
+      <h2>Who we supply.</h2>
+      <p>Vigolix is positioned for customers who purchase plumbing products for resale, installation, or project supply.</p>
+    </div>
 
-  <div class="trade-grid">
-    <div class="trade-card">
-      <div class="trade-icon">🏗️</div>
-      <h4>Mechanical Contractors</h4>
-      <p>Direct supply for new construction, renovations, and commercial mechanical projects. Volume pricing available.</p>
-    </div>
-    <div class="trade-card">
-      <div class="trade-icon">🏪</div>
-      <h4>Plumbing Wholesalers</h4>
-      <p>Independent wholesalers seeking a certified PEX line with better margins than national distributors.</p>
-    </div>
-    <div class="trade-card">
-      <div class="trade-icon">🏢</div>
-      <h4>Property Management</h4>
-      <p>Building managers needing reliable certified fittings for ongoing maintenance and repair programs.</p>
-    </div>
-    <div class="trade-card">
-      <div class="trade-icon">📦</div>
-      <h4>Buying Groups</h4>
-      <p>Co-ops and buying groups seeking a Canadian-based importer with flexible MOQs and full certification.</p>
+    <div class="trade-grid">
+      <div class="trade-card"><h3>Wholesalers</h3><p>Independent plumbing supply and distribution buyers.</p></div>
+      <div class="trade-card"><h3>Contractors</h3><p>Mechanical and plumbing contractors sourcing project materials.</p></div>
+      <div class="trade-card"><h3>Retailers</h3><p>Hardware and building supply retailers seeking product lines.</p></div>
+      <div class="trade-card"><h3>Buying Groups</h3><p>Trade groups and regional supply networks.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-  <div class="sec-label">Get Started</div>
-  <div class="sec-title">Request Trade Pricing</div>
-
-  <div class="contact-wrap">
-    <div class="contact-info">
-      <p>Contact Vigolix for trade account pricing, product specifications, certification documentation, or to discuss supply agreements for your business.</p>
-      <div class="contact-detail">
-        <div class="contact-row">
-          <div class="cicon">📍</div>
-          <span>Calgary, Alberta, Canada</span>
-        </div>
-        <div class="contact-row">
-          <div class="cicon">🌐</div>
-          <a href="https://www.vigolix.ca">www.vigolix.ca</a>
-        </div>
-        <div class="contact-row">
-          <div class="cicon">📋</div>
-          <span>Alberta Reg. #2288267</span>
-        </div>
-        <div class="contact-row">
-          <div class="cicon">✅</div>
-          <span>IAPMO cUPC — File #10405</span>
-        </div>
+  <div class="wrap contact-grid">
+    <div>
+      <div class="kicker">Contact</div>
+      <h2 style="font-size:42px;color:var(--blue);line-height:1.15;margin-bottom:16px;">Request product information.</h2>
+      <p style="color:var(--muted);font-size:17px;">For catalogue, pricing, or product availability, send your business details and product interest.</p>
+      <div class="info">
+        <div><b>Location:</b> Calgary, Alberta, Canada</div>
+        <div><b>Email:</b> info@vigolix.com</div>
+        <div><b>Phone:</b> (587) 438-8125</div>
       </div>
     </div>
 
-    <div class="form-card">
-      <h3>Trade Inquiry Form</h3>
+    <form class="form">
       <div class="form-row">
-        <div class="form-group">
-          <label>Company Name</label>
-          <input type="text" placeholder="Your company">
-        </div>
-        <div class="form-group">
-          <label>Contact Name</label>
-          <input type="text" placeholder="Your name">
-        </div>
+        <input type="text" placeholder="Company Name">
+        <input type="text" placeholder="Contact Name">
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="you@company.com">
-        </div>
-        <div class="form-group">
-          <label>Phone</label>
-          <input type="tel" placeholder="+1 (___) ___-____">
-        </div>
+        <input type="email" placeholder="Email Address">
+        <input type="tel" placeholder="Phone Number">
       </div>
-      <div class="form-group">
-        <label>Business Type</label>
-        <select>
-          <option value="">Select your business type</option>
-          <option>Mechanical Contractor</option>
-          <option>Plumbing Wholesaler</option>
-          <option>Property Management</option>
-          <option>Buying Group / Co-op</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Products &amp; Quantities</label>
-        <textarea placeholder="Tell us which products you need and approximate quantities..."></textarea>
-      </div>
-      <button class="btn-primary" style="width:100%;font-size:0.95rem;padding:1rem;">Send Trade Inquiry</button>
-    </div>
+      <select>
+        <option>Business Type</option>
+        <option>Wholesaler</option>
+        <option>Contractor</option>
+        <option>Retailer</option>
+        <option>Distributor</option>
+        <option>Other</option>
+      </select>
+      <textarea placeholder="Products of interest"></textarea>
+      <button type="button">Send Inquiry</button>
+    </form>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
-  <div class="footer-logo">Vigo<span>lix</span></div>
-  <p>© 2025 Vigolix — 2288267 Alberta Ltd. All rights reserved.</p>
-  <div class="footer-certs">
-    <span class="footer-cert">cUPC</span>
-    <span class="footer-cert">IAPMO #10405</span>
-    <span class="footer-cert">NSF 61</span>
+  <div class="wrap footer-grid">
+    <div><b>Vigolix</b><br>PEX plumbing supply for trade customers.</div>
+    <div>Calgary, Alberta, Canada<br>info@vigolix.com</div>
+    <div>© 2026 Vigolix. All rights reserved.</div>
   </div>
 </footer>
 
 </body>
 </html>
-
-
