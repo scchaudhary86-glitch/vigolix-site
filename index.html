@@ -26,144 +26,233 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); background: var(--white); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-  .container { max-width: 1480px; margin: 0 auto; padding: 0 60px; }
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  body { font-family: var(--font-body); background: var(--white); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
+
+  /* FULL WIDTH CONTAINER */
+  .container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
 
   /* HEADER */
-  header { background: var(--navy); border-bottom: 3px solid var(--blue-accent); padding: 14px 0; position: sticky; top: 0; z-index: 100; }
+  header {
+    background: var(--navy);
+    border-bottom: 3px solid var(--blue-accent);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+  }
   .header-inner { display: flex; align-items: center; justify-content: space-between; }
-  .logo-wrap img { height: 64px; width: auto; max-width: 220px; object-fit: contain; display: block; }
-  .logo-fallback { display: flex; align-items: baseline; gap: 6px; }
-  .logo-fallback .wordmark { font-family: var(--font-display); font-weight: 900; font-size: 2.1rem; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; }
-  .logo-fallback .tagline-small { font-family: var(--font-body); font-weight: 400; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-light); padding-bottom: 4px; }
-  nav { display: flex; align-items: center; gap: 36px; }
-  nav a { font-family: var(--font-body); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.72); text-decoration: none; transition: color 0.2s; }
+
+  /* LOGO - sized for wide landscape transparent PNG (300px tall x 800px wide ratio) */
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    height: 70px;
+  }
+  .logo-wrap img {
+    height: 70px;
+    width: auto;
+    max-width: 320px;
+    object-fit: contain;
+    object-position: left center;
+    display: block;
+  }
+  .logo-fallback {
+    display: none;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .logo-fallback .wordmark {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 2.4rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .logo-fallback .tagline-small {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+  }
+
+  nav { display: flex; align-items: center; gap: 40px; }
+  nav a { font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.72); text-decoration: none; transition: color 0.2s; }
   nav a:hover { color: var(--white); }
-  .nav-cta { background: var(--blue-accent); color: var(--white) !important; padding: 9px 22px; border-radius: 2px; letter-spacing: 0.12em; transition: background 0.2s !important; }
+  .nav-cta { background: var(--blue-accent); color: var(--white) !important; padding: 10px 24px; border-radius: 2px; transition: background 0.2s !important; }
   .nav-cta:hover { background: var(--blue-light) !important; }
 
   /* HERO */
-  .hero { background: var(--navy); padding: 100px 0 88px; position: relative; overflow: hidden; }
+  .hero { background: var(--navy); padding: 100px 0 90px; position: relative; overflow: hidden; width: 100%; }
   .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 42%; height: 100%; background: linear-gradient(135deg, rgba(46,109,164,0.12) 0%, rgba(46,109,164,0.04) 100%); border-left: 1px solid rgba(46,109,164,0.2); }
-  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--blue-accent) 0%, transparent 70%); }
-  .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .hero-eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
-  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 2px; background: var(--blue-accent); flex-shrink: 0; }
-  .hero h1 { font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 5.5vw, 5rem); line-height: 1.0; letter-spacing: 0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 28px; }
+  .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--blue-accent) 0%, transparent 60%); }
+  .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 100px; align-items: center; }
+  .hero-eyebrow { font-weight: 600; font-size: 0.75rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 2px; background: var(--blue-accent); flex-shrink: 0; }
+  .hero h1 { font-family: var(--font-display); font-weight: 900; font-size: clamp(3.5rem, 5vw, 5.5rem); line-height: 1.0; letter-spacing: 0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 30px; }
   .hero h1 span { color: var(--blue-light); }
-  .hero-desc { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.62); max-width: 460px; margin-bottom: 40px; font-weight: 400; }
-  .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-  .btn-primary { background: var(--blue-accent); color: var(--white); font-family: var(--font-body); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 14px 30px; border-radius: 2px; transition: background 0.2s; display: inline-block; }
+  .hero-desc { font-size: 1.1rem; line-height: 1.8; color: rgba(255,255,255,0.62); margin-bottom: 44px; font-weight: 400; }
+  .hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .btn-primary { background: var(--blue-accent); color: var(--white); font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; padding: 15px 32px; border-radius: 2px; transition: background 0.2s; display: inline-block; }
   .btn-primary:hover { background: var(--blue-light); }
-  .btn-ghost { color: rgba(255,255,255,0.65); font-family: var(--font-body); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+  .btn-ghost { color: rgba(255,255,255,0.65); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
   .btn-ghost:hover { color: var(--white); }
   .btn-ghost svg { transition: transform 0.2s; }
   .btn-ghost:hover svg { transform: translateX(4px); }
   .hero-right { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
-  .hero-stat-block { border: 1px solid rgba(46,109,164,0.3); padding: 28px 36px; text-align: center; width: 200px; background: rgba(46,109,164,0.06); }
-  .hero-stat-num { font-family: var(--font-display); font-weight: 800; font-size: 2.4rem; color: var(--white); line-height: 1; letter-spacing: 0.04em; }
-  .hero-stat-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 6px; font-weight: 500; }
+  .hero-stat-block { border: 1px solid rgba(46,109,164,0.3); padding: 32px 44px; text-align: center; width: 220px; background: rgba(46,109,164,0.06); }
+  .hero-stat-num { font-family: var(--font-display); font-weight: 800; font-size: 2.6rem; color: var(--white); line-height: 1; letter-spacing: 0.04em; }
+  .hero-stat-label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 8px; font-weight: 500; }
 
   /* TRUST STRIP */
-  .trust-strip { background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.07); padding: 18px 0; }
-  .trust-inner { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
-  .trust-item { font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding: 4px 28px; position: relative; }
-  .trust-item + .trust-item::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 12px; background: rgba(255,255,255,0.18); }
+  .trust-strip { background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0; width: 100%; }
+  .trust-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .trust-item { font-family: var(--font-display); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.45); padding: 4px 32px; position: relative; }
+  .trust-item + .trust-item::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 14px; background: rgba(255,255,255,0.18); }
 
-  /* SECTIONS */
-  .section { padding: 96px 0; }
+  /* SECTIONS - full width, content fills container */
+  .section { padding: 96px 0; width: 100%; }
   .section-alt { background: var(--off-white); }
   .section-dark { background: var(--navy); }
-  .section-label { font-family: var(--font-body); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--blue-accent); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
-  .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--blue-accent); flex-shrink: 0; }
-  .section-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.1rem, 3.5vw, 3rem); line-height: 1.08; letter-spacing: 0.02em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 18px; }
+  .section-label { font-weight: 600; font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--blue-accent); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-label::before { content: ''; display: block; width: 26px; height: 2px; background: var(--blue-accent); flex-shrink: 0; }
+  .section-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 3vw, 3.2rem); line-height: 1.06; letter-spacing: 0.02em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 16px; }
   .section-dark .section-title { color: var(--white); }
-  .section-sub { font-size: 1rem; line-height: 1.7; color: var(--text-muted); max-width: 520px; margin-bottom: 56px; }
+  /* REMOVED max-width from section-sub so text fills width */
+  .section-sub { font-size: 1.05rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 52px; }
   .section-dark .section-sub { color: rgba(255,255,255,0.55); }
 
-  /* PRODUCTS */
-  .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .product-card { background: var(--white); border: 1px solid var(--border); padding: 36px 28px; position: relative; transition: border-color 0.25s, box-shadow 0.25s; cursor: default; }
+  /* PRODUCTS - full width grid */
+  .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; width: 100%; }
+  .product-card { background: var(--white); border: 1px solid var(--border); padding: 40px 32px; position: relative; transition: border-color 0.25s, box-shadow 0.25s; cursor: default; }
   .product-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--blue-accent); transition: height 0.25s; }
   .product-card:hover { border-color: rgba(46,109,164,0.35); box-shadow: 0 8px 32px rgba(15,25,35,0.08); }
   .product-card:hover::before { height: 100%; }
-  .card-icon { width: 44px; height: 44px; background: var(--blue-pale); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
-  .card-icon svg { width: 22px; height: 22px; stroke: var(--blue-accent); fill: none; stroke-width: 1.8; }
-  .card-title { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 12px; line-height: 1.2; }
-  .card-body { font-size: 0.9rem; line-height: 1.68; color: var(--text-muted); font-weight: 400; }
+  .card-icon { width: 48px; height: 48px; background: var(--blue-pale); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 26px; }
+  .card-icon svg { width: 24px; height: 24px; stroke: var(--blue-accent); fill: none; stroke-width: 1.8; }
+  .card-title { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 14px; line-height: 1.2; }
+  .card-body { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); font-weight: 400; }
 
   /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .about-text p { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; width: 100%; }
+  .about-text p { font-size: 1.05rem; line-height: 1.85; color: var(--text-secondary); margin-bottom: 22px; }
   .about-facts { display: flex; flex-direction: column; gap: 20px; }
-  .fact-row { display: flex; align-items: flex-start; gap: 18px; padding: 22px 24px; background: var(--white); border: 1px solid var(--border); }
-  .fact-dot { width: 8px; height: 8px; background: var(--blue-accent); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
-  .fact-content strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 4px; }
-  .fact-content p { font-size: 0.88rem; line-height: 1.6; color: var(--text-muted); margin: 0; }
+  .fact-row { display: flex; align-items: flex-start; gap: 20px; padding: 24px 28px; background: var(--white); border: 1px solid var(--border); }
+  .fact-dot { width: 8px; height: 8px; background: var(--blue-accent); border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
+  .fact-content strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 0.92rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 5px; }
+  .fact-content p { font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); margin: 0; }
 
   /* POSITIONING */
-  .position-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); }
-  .position-item { background: var(--navy); padding: 44px 32px; text-align: center; transition: background 0.2s; }
+  .position-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); width: 100%; }
+  .position-item { background: var(--navy); padding: 52px 40px; text-align: center; transition: background 0.2s; }
   .position-item:hover { background: rgba(46,109,164,0.1); }
-  .position-num { font-family: var(--font-display); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.24em; color: var(--blue-accent); text-transform: uppercase; margin-bottom: 14px; }
-  .position-text { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); line-height: 1.3; }
-  .position-sub { margin-top: 10px; font-size: 0.82rem; color: rgba(255,255,255,0.42); line-height: 1.5; font-weight: 400; }
+  .position-num { font-family: var(--font-display); font-weight: 800; font-size: 0.72rem; letter-spacing: 0.26em; color: var(--blue-accent); text-transform: uppercase; margin-bottom: 16px; }
+  .position-text { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white); line-height: 1.3; }
+  .position-sub { margin-top: 12px; font-size: 0.88rem; color: rgba(255,255,255,0.42); line-height: 1.6; font-weight: 400; }
 
   /* CONTACT */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 100px; align-items: start; width: 100%; }
   .contact-info { padding-top: 8px; }
-  .contact-block { margin-bottom: 36px; }
-  .contact-block-label { font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 8px; }
-  .contact-block-value { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; color: var(--text-primary); letter-spacing: 0.04em; }
-  .contact-note { margin-top: 40px; padding: 20px 24px; background: var(--off-white); border: 1px solid var(--border); font-size: 0.88rem; line-height: 1.65; color: var(--text-muted); }
-  .contact-form { display: flex; flex-direction: column; gap: 16px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  .contact-block { margin-bottom: 32px; }
+  .contact-block-label { font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 8px; }
+  .contact-block-value { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); letter-spacing: 0.04em; }
+  .contact-note { margin-top: 36px; padding: 22px 26px; background: var(--off-white); border: 1px solid var(--border); font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); }
+  .contact-form { display: flex; flex-direction: column; gap: 18px; width: 100%; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
   .form-group label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
-  .form-group input, .form-group select, .form-group textarea { background: var(--white); border: 1px solid var(--border); border-radius: 2px; padding: 12px 14px; font-family: var(--font-body); font-size: 0.93rem; color: var(--text-primary); transition: border-color 0.2s; outline: none; width: 100%; }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue-accent); }
-  .form-group textarea { min-height: 120px; resize: vertical; }
-  .form-submit { background: var(--blue-accent); color: var(--white); font-family: var(--font-body); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; border: none; padding: 15px 32px; border-radius: 2px; cursor: pointer; transition: background 0.2s; align-self: flex-start; margin-top: 4px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 13px 16px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+    appearance: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue-accent); box-shadow: 0 0 0 3px rgba(46,109,164,0.1); }
+  .form-group textarea { min-height: 130px; resize: vertical; }
+  .form-submit {
+    background: var(--blue-accent);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none;
+    padding: 16px 36px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
   .form-submit:hover { background: var(--blue-light); }
-  .form-disclaimer { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+  .form-disclaimer { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+  .form-status { display: none; padding: 16px 20px; border-radius: 2px; font-size: 0.9rem; font-weight: 600; margin-top: 4px; }
+  .form-status.success { background: #e8f5ea; color: #1e6e30; border: 1px solid #b6debb; }
+  .form-status.error { background: #fdf0f0; color: #922; border: 1px solid #f5c6c6; }
 
   /* FOOTER */
-  footer { background: var(--navy); border-top: 3px solid var(--blue-accent); padding: 52px 0 36px; }
-  .footer-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 56px; margin-bottom: 44px; }
-  .footer-brand .wordmark { font-family: var(--font-display); font-weight: 900; font-size: 1.6rem; letter-spacing: 0.14em; color: var(--white); text-transform: uppercase; display: block; margin-bottom: 6px; }
-  .footer-brand .footer-desc { font-size: 0.78rem; color: rgba(255,255,255,0.4); font-weight: 400; line-height: 1.5; }
-  .footer-brand .location { margin-top: 12px; font-size: 0.8rem; color: rgba(255,255,255,0.5); font-weight: 500; letter-spacing: 0.06em; }
-  .footer-col-title { font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 18px; }
-  .footer-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-  .footer-list li { font-size: 0.85rem; color: rgba(255,255,255,0.48); line-height: 1.4; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.32); line-height: 1.5; }
-  .footer-mark { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.22); font-weight: 600; }
+  footer { background: var(--navy); border-top: 3px solid var(--blue-accent); padding: 56px 0 36px; width: 100%; }
+  .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 80px; margin-bottom: 48px; }
+  .footer-brand .wordmark { font-family: var(--font-display); font-weight: 900; font-size: 1.8rem; letter-spacing: 0.14em; color: var(--white); text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .footer-brand .footer-desc { font-size: 0.82rem; color: rgba(255,255,255,0.4); font-weight: 400; line-height: 1.6; }
+  .footer-brand .location { margin-top: 14px; font-size: 0.82rem; color: rgba(255,255,255,0.5); font-weight: 500; letter-spacing: 0.06em; }
+  .footer-col-title { font-family: var(--font-display); font-weight: 700; font-size: 0.74rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 20px; }
+  .footer-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-list li { font-size: 0.88rem; color: rgba(255,255,255,0.48); line-height: 1.4; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); line-height: 1.5; }
+  .footer-mark { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.2); font-weight: 600; }
 
   .rule { border: none; border-top: 1px solid var(--border); margin: 0; }
 
   /* RESPONSIVE */
-  @media (max-width: 960px) {
-    .container { padding: 0 32px; }
-    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-    .hero-right { flex-direction: row; align-items: flex-start; justify-content: flex-start; }
+  @media (max-width: 1200px) {
+    .container { padding: 0 48px; }
     .product-grid { grid-template-columns: repeat(2, 1fr); }
     .position-grid { grid-template-columns: repeat(2, 1fr); }
-    .about-grid { grid-template-columns: 1fr; gap: 48px; }
-    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
-    .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+  }
+  @media (max-width: 900px) {
+    .container { padding: 0 32px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 56px; }
+    .hero-right { flex-direction: row; justify-content: flex-start; }
+    .about-grid { grid-template-columns: 1fr; gap: 56px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 40px; }
     .section { padding: 72px 0; }
   }
   @media (max-width: 640px) {
+    .container { padding: 0 20px; }
     nav { display: none; }
-    .hero { padding: 64px 0 60px; }
-    .hero h1 { font-size: 2.6rem; }
+    .hero { padding: 60px 0; }
+    .hero h1 { font-size: 2.8rem; }
     .product-grid { grid-template-columns: 1fr; }
     .position-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .hero-right { display: none; }
-    .trust-inner { gap: 0; }
-    .trust-item { padding: 4px 14px; font-size: 0.62rem; }
+    .trust-item { padding: 4px 16px; font-size: 0.65rem; }
   }
 </style>
 </head>
@@ -174,8 +263,9 @@
   <div class="container">
     <div class="header-inner">
       <div class="logo-wrap">
-        <img src="logo.png" alt="VIGOLIX" onerror="this.style.display='none'; document.getElementById('logo-fb').style.display='flex';">
-        <div class="logo-fallback" id="logo-fb" style="display:none;">
+        <img src="logo.png" alt="VIGOLIX"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="logo-fallback">
           <span class="wordmark">VIGOLIX</span>
           <span class="tagline-small">Trade Supply</span>
         </div>
@@ -363,7 +453,7 @@
     <h2 class="section-title">Trade Inquiry</h2>
     <div class="contact-grid">
       <div class="contact-info">
-        <p style="font-size:1rem; line-height:1.75; color: var(--text-secondary); margin-bottom: 36px;">
+        <p style="font-size:1.05rem; line-height:1.8; color: var(--text-secondary); margin-bottom: 36px;">
           VIGOLIX accepts inquiries from distributors, wholesalers, and contractors. Submit your business details and product requirements to receive relevant information.
         </p>
         <div class="contact-block">
@@ -378,46 +468,47 @@
           All inquiries are reviewed. Responses are provided to verified trade accounts. We do not respond to consumer purchase requests.
         </div>
       </div>
-      <div>
-        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fname">First Name</label>
-              <input type="text" id="fname" name="first_name" placeholder="John" autocomplete="given-name" required>
-            </div>
-            <div class="form-group">
-              <label for="lname">Last Name</label>
-              <input type="text" id="lname" name="last_name" placeholder="Smith" autocomplete="family-name" required>
-            </div>
+
+      <!-- FORM: Replace YOUR_EMAIL_HERE with your actual email address -->
+      <form class="contact-form" id="tradeForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name *</label>
+            <input type="text" id="fname" name="first_name" placeholder="John" required>
           </div>
           <div class="form-group">
-            <label for="company">Company / Organization</label>
-            <input type="text" id="company" name="company" placeholder="ABC Plumbing Supply Ltd." required>
+            <label for="lname">Last Name *</label>
+            <input type="text" id="lname" name="last_name" placeholder="Smith" required>
           </div>
-          <div class="form-group">
-            <label for="email">Business Email</label>
-            <input type="email" id="email" name="email" placeholder="j.smith@company.com" autocomplete="email" required>
-          </div>
-          <div class="form-group">
-            <label for="type">Account Type</label>
-            <select id="type" name="account_type" required>
-              <option value="" disabled selected>Select account type</option>
-              <option>Distributor</option>
-              <option>Plumbing Wholesaler</option>
-              <option>Contractor</option>
-              <option>Retail Buyer</option>
-              <option>Other Trade Account</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Inquiry Details</label>
-            <textarea id="message" name="message" placeholder="Describe your product requirements or any questions regarding trade supply." required></textarea>
-          </div>
-          <div id="form-status" style="display:none; padding: 14px 18px; border-radius: 2px; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.06em;"></div>
-          <button type="submit" class="form-submit">Submit Trade Inquiry</button>
-          <p class="form-disclaimer">By submitting this form you confirm you are a verified trade buyer.</p>
-        </form>
-      </div>
+        </div>
+        <div class="form-group">
+          <label for="company">Company / Organization *</label>
+          <input type="text" id="company" name="company" placeholder="ABC Plumbing Supply Ltd." required>
+        </div>
+        <div class="form-group">
+          <label for="email">Business Email *</label>
+          <input type="email" id="email" name="email" placeholder="j.smith@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="type">Account Type *</label>
+          <select id="type" name="account_type" required>
+            <option value="">Select account type</option>
+            <option value="Distributor">Distributor</option>
+            <option value="Plumbing Wholesaler">Plumbing Wholesaler</option>
+            <option value="Contractor">Contractor</option>
+            <option value="Retail Buyer">Retail Buyer</option>
+            <option value="Other Trade Account">Other Trade Account</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Inquiry Details</label>
+          <textarea id="message" name="message" placeholder="Describe your product requirements or any questions regarding trade supply."></textarea>
+        </div>
+        <div class="form-status" id="formStatus"></div>
+        <button type="submit" class="form-submit" id="submitBtn">Submit Trade Inquiry</button>
+        <p class="form-disclaimer">By submitting this form you confirm you are a verified trade buyer.</p>
+      </form>
+
     </div>
   </div>
 </section>
@@ -457,43 +548,73 @@
 </footer>
 
 <script>
-  const form = document.querySelector('.contact-form');
-  const status = document.getElementById('form-status');
+  // ── LOGO: show fallback if logo.png fails ──────────────────────────
+  // (handled inline via onerror on the img tag)
+
+  // ── FORM SUBMISSION via Web3Forms (free, no backend, works on GitHub Pages) ──
+  // To activate: go to web3forms.com → get your free access key → paste below
+  const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'; // <-- replace this
+
+  const form = document.getElementById('tradeForm');
+  const statusEl = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const btn = form.querySelector('.form-submit');
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
 
-    const data = new FormData(form);
+    // Basic validation
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const company = document.getElementById('company').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const type = document.getElementById('type').value;
+
+    if (!fname || !lname || !company || !email || !type) {
+      showStatus('error', 'Please fill in all required fields before submitting.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showStatus('error', 'Please enter a valid business email address.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    statusEl.style.display = 'none';
+
+    // Build form data
+    const formData = new FormData(form);
+    formData.append('access_key', WEB3FORMS_KEY);
+    formData.append('subject', 'New Trade Inquiry — VIGOLIX');
+    formData.append('from_name', fname + ' ' + lname + ' (' + company + ')');
+
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+        body: formData
       });
-      if (res.ok) {
-        status.style.display = 'block';
-        status.style.background = '#e6f4ea';
-        status.style.color = '#1a6630';
-        status.style.border = '1px solid #b7dfbe';
-        status.textContent = 'Your inquiry has been submitted. A VIGOLIX representative will be in touch.';
+      const data = await res.json();
+
+      if (data.success) {
+        showStatus('success', 'Your inquiry has been submitted. A VIGOLIX representative will be in touch.');
         form.reset();
-        btn.textContent = 'Submitted';
+        submitBtn.textContent = 'Submitted ✓';
       } else {
-        throw new Error('Server error');
+        throw new Error(data.message || 'Submission failed');
       }
-    } catch(err) {
-      status.style.display = 'block';
-      status.style.background = '#fdf0f0';
-      status.style.color = '#922';
-      status.style.border = '1px solid #f5c6c6';
-      status.textContent = 'Submission failed. Please email us directly or try again.';
-      btn.disabled = false;
-      btn.textContent = 'Submit Trade Inquiry';
+    } catch (err) {
+      showStatus('error', 'Submission failed. Please try again or contact us directly.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Trade Inquiry';
     }
   });
+
+  function showStatus(type, msg) {
+    statusEl.className = 'form-status ' + type;
+    statusEl.textContent = msg;
+    statusEl.style.display = 'block';
+    statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 </script>
 
 </body>
