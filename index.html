@@ -469,45 +469,56 @@
         </div>
       </div>
 
-      <!-- FORM: Replace YOUR_EMAIL_HERE with your actual email address -->
-      <form class="contact-form" id="tradeForm" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">First Name *</label>
-            <input type="text" id="fname" name="first_name" placeholder="John" required>
+      <div>
+        <div data-fs-success style="display:none; padding:16px 20px; background:#e8f5ea; color:#1e6e30; border:1px solid #b6debb; border-radius:2px; font-size:0.92rem; font-weight:600; margin-bottom:16px;">
+          Your inquiry has been submitted. A VIGOLIX representative will be in touch.
+        </div>
+        <div data-fs-error style="display:none; padding:16px 20px; background:#fdf0f0; color:#922; border:1px solid #f5c6c6; border-radius:2px; font-size:0.92rem; font-weight:600; margin-bottom:16px;"></div>
+
+        <form class="contact-form" id="tradeForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" name="first_name" placeholder="John" data-fs-field required>
+              <span data-fs-error="first_name" style="color:#922; font-size:0.8rem; margin-top:4px;"></span>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" name="last_name" placeholder="Smith" data-fs-field required>
+              <span data-fs-error="last_name" style="color:#922; font-size:0.8rem; margin-top:4px;"></span>
+            </div>
           </div>
           <div class="form-group">
-            <label for="lname">Last Name *</label>
-            <input type="text" id="lname" name="last_name" placeholder="Smith" required>
+            <label for="company">Company / Organization *</label>
+            <input type="text" id="company" name="company" placeholder="ABC Plumbing Supply Ltd." data-fs-field required>
+            <span data-fs-error="company" style="color:#922; font-size:0.8rem; margin-top:4px;"></span>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="company">Company / Organization *</label>
-          <input type="text" id="company" name="company" placeholder="ABC Plumbing Supply Ltd." required>
-        </div>
-        <div class="form-group">
-          <label for="email">Business Email *</label>
-          <input type="email" id="email" name="email" placeholder="j.smith@company.com" required>
-        </div>
-        <div class="form-group">
-          <label for="type">Account Type *</label>
-          <select id="type" name="account_type" required>
-            <option value="">Select account type</option>
-            <option value="Distributor">Distributor</option>
-            <option value="Plumbing Wholesaler">Plumbing Wholesaler</option>
-            <option value="Contractor">Contractor</option>
-            <option value="Retail Buyer">Retail Buyer</option>
-            <option value="Other Trade Account">Other Trade Account</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Inquiry Details</label>
-          <textarea id="message" name="message" placeholder="Describe your product requirements or any questions regarding trade supply."></textarea>
-        </div>
-        <div class="form-status" id="formStatus"></div>
-        <button type="submit" class="form-submit" id="submitBtn">Submit Trade Inquiry</button>
-        <p class="form-disclaimer">By submitting this form you confirm you are a verified trade buyer.</p>
-      </form>
+          <div class="form-group">
+            <label for="email">Business Email *</label>
+            <input type="email" id="email" name="email" placeholder="j.smith@company.com" data-fs-field required>
+            <span data-fs-error="email" style="color:#922; font-size:0.8rem; margin-top:4px;"></span>
+          </div>
+          <div class="form-group">
+            <label for="type">Account Type *</label>
+            <select id="type" name="account_type" data-fs-field required>
+              <option value="">Select account type</option>
+              <option value="Distributor">Distributor</option>
+              <option value="Plumbing Wholesaler">Plumbing Wholesaler</option>
+              <option value="Contractor">Contractor</option>
+              <option value="Retail Buyer">Retail Buyer</option>
+              <option value="Other Trade Account">Other Trade Account</option>
+            </select>
+            <span data-fs-error="account_type" style="color:#922; font-size:0.8rem; margin-top:4px;"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Inquiry Details</label>
+            <textarea id="message" name="message" placeholder="Describe your product requirements or any questions regarding trade supply." data-fs-field></textarea>
+            <span data-fs-error="message" style="color:#922; font-size:0.8rem; margin-top:4px;"></span>
+          </div>
+          <button type="submit" class="form-submit" data-fs-submit-btn>Submit Trade Inquiry</button>
+          <p class="form-disclaimer">By submitting this form you confirm you are a verified trade buyer.</p>
+        </form>
+      </div>
 
     </div>
   </div>
@@ -548,74 +559,10 @@
 </footer>
 
 <script>
-  // ── LOGO: show fallback if logo.png fails ──────────────────────────
-  // (handled inline via onerror on the img tag)
-
-  // ── FORM SUBMISSION via Web3Forms (free, no backend, works on GitHub Pages) ──
-  // To activate: go to web3forms.com → get your free access key → paste below
-  const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'; // <-- replace this
-
-  const form = document.getElementById('tradeForm');
-  const statusEl = document.getElementById('formStatus');
-  const submitBtn = document.getElementById('submitBtn');
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    // Basic validation
-    const fname = document.getElementById('fname').value.trim();
-    const lname = document.getElementById('lname').value.trim();
-    const company = document.getElementById('company').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const type = document.getElementById('type').value;
-
-    if (!fname || !lname || !company || !email || !type) {
-      showStatus('error', 'Please fill in all required fields before submitting.');
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showStatus('error', 'Please enter a valid business email address.');
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    statusEl.style.display = 'none';
-
-    // Build form data
-    const formData = new FormData(form);
-    formData.append('access_key', WEB3FORMS_KEY);
-    formData.append('subject', 'New Trade Inquiry — VIGOLIX');
-    formData.append('from_name', fname + ' ' + lname + ' (' + company + ')');
-
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      });
-      const data = await res.json();
-
-      if (data.success) {
-        showStatus('success', 'Your inquiry has been submitted. A VIGOLIX representative will be in touch.');
-        form.reset();
-        submitBtn.textContent = 'Submitted ✓';
-      } else {
-        throw new Error(data.message || 'Submission failed');
-      }
-    } catch (err) {
-      showStatus('error', 'Submission failed. Please try again or contact us directly.');
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Trade Inquiry';
-    }
-  });
-
-  function showStatus(type, msg) {
-    statusEl.className = 'form-status ' + type;
-    statusEl.textContent = msg;
-    statusEl.style.display = 'block';
-    statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#tradeForm', formId: 'xpqkevjd' });
 </script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
