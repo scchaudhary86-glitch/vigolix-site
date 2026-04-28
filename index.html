@@ -113,10 +113,16 @@
   .btn-ghost:hover { color: var(--white); }
   .btn-ghost svg { transition: transform 0.2s; }
   .btn-ghost:hover svg { transform: translateX(4px); }
-  .hero-right { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 20px; padding-left: 40px; overflow: hidden; }
-  .hero-stat-block { border: 1px solid rgba(46,109,164,0.3); padding: 0; text-align: center; width: 160px; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(46,109,164,0.06); }
+  .hero-right { display: flex; align-items: stretch; justify-content: flex-end; padding-left: 40px; }
+  .hero-panel { background: rgba(46,109,164,0.07); border: 1px solid rgba(46,109,164,0.25); padding: 48px 40px; display: flex; flex-direction: column; gap: 0; width: 100%; }
+  .hero-panel-row { display: flex; gap: 20px; justify-content: center; }
+  .hero-stat-block { border: 1px solid rgba(46,109,164,0.3); width: 160px; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(46,109,164,0.08); }
   .hero-stat-num { font-family: var(--font-display); font-weight: 800; font-size: 2.6rem; color: var(--white); line-height: 1; letter-spacing: 0.04em; }
   .hero-stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 10px; font-weight: 500; }
+  .hero-panel-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 36px 0; }
+  .hero-panel-facts { display: flex; flex-direction: column; gap: 16px; }
+  .hero-panel-fact { display: flex; align-items: center; gap: 14px; font-size: 0.88rem; color: rgba(255,255,255,0.55); font-weight: 400; line-height: 1.4; }
+  .hero-fact-dot { width: 6px; height: 6px; background: var(--blue-accent); border-radius: 50%; flex-shrink: 0; }
 
   /* TRUST STRIP */
   .trust-strip { background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.07); padding: 20px 0; width: 100%; }
@@ -304,13 +310,36 @@
         </div>
       </div>
       <div class="hero-right">
-        <div class="hero-stat-block">
-          <div class="hero-stat-num">B2B</div>
-          <div class="hero-stat-label">Trade Only</div>
-        </div>
-        <div class="hero-stat-block">
-          <div class="hero-stat-num">CA</div>
-          <div class="hero-stat-label">Calgary Based</div>
+        <div class="hero-panel">
+          <div class="hero-panel-row">
+            <div class="hero-stat-block">
+              <div class="hero-stat-num">B2B</div>
+              <div class="hero-stat-label">Trade Only</div>
+            </div>
+            <div class="hero-stat-block">
+              <div class="hero-stat-num">CA</div>
+              <div class="hero-stat-label">Calgary Based</div>
+            </div>
+          </div>
+          <div class="hero-panel-divider"></div>
+          <div class="hero-panel-facts">
+            <div class="hero-panel-fact">
+              <span class="hero-fact-dot"></span>
+              <span>Importers of PEX plumbing products</span>
+            </div>
+            <div class="hero-panel-fact">
+              <span class="hero-fact-dot"></span>
+              <span>Serving Canadian trade accounts</span>
+            </div>
+            <div class="hero-panel-fact">
+              <span class="hero-fact-dot"></span>
+              <span>Distributors, contractors &amp; wholesalers</span>
+            </div>
+            <div class="hero-panel-fact">
+              <span class="hero-fact-dot"></span>
+              <span>Pricing &amp; catalogue on request</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -586,17 +615,28 @@
     btn.textContent = 'Sending...';
 
     try {
+      const payload = {
+        first_name: fname,
+        last_name: lname,
+        company: company,
+        email: email,
+        account_type: actype,
+        message: document.getElementById('message').value.trim()
+      };
+
       const response = await fetch('https://formspree.io/f/xpqkevjd', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(this)
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
       });
 
       if (response.ok) {
-        // Success — show green confirmation, hide the form fields
         successEl.style.display = 'block';
         successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        this.reset();
+        document.getElementById('tradeForm').reset();
         btn.textContent = 'Inquiry Submitted';
       } else {
         const data = await response.json();
