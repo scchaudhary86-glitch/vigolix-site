@@ -155,13 +155,16 @@
   .card-body { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); font-weight: 400; }
 
   /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; width: 100%; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; width: 100%; }
   .about-text p { font-size: 1.05rem; line-height: 1.85; color: var(--text-secondary); margin-bottom: 22px; }
-  .about-facts { display: flex; flex-direction: column; gap: 20px; }
-  .fact-row { display: flex; align-items: flex-start; gap: 20px; padding: 24px 28px; background: var(--white); border: 1px solid var(--border); }
+  .about-facts { display: flex; flex-direction: column; gap: 16px; }
+  .fact-row { display: flex; align-items: flex-start; gap: 20px; padding: 20px 24px; background: var(--white); border: 1px solid var(--border); }
   .fact-dot { width: 8px; height: 8px; background: var(--blue-accent); border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
   .fact-content strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 0.92rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-primary); margin-bottom: 5px; }
   .fact-content p { font-size: 0.9rem; line-height: 1.65; color: var(--text-muted); margin: 0; }
+  .about-image-wrap { position: sticky; top: 120px; }
+  .about-image-wrap img { width: 100%; height: auto; display: block; background: var(--white); border: 1px solid var(--border); padding: 36px; box-sizing: border-box; }
+  .about-image-caption { margin-top: 14px; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; text-align: center; }
 
   /* POSITIONING */
   .position-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); width: 100%; }
@@ -234,6 +237,12 @@
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 30px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
   .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); line-height: 1.5; }
   .footer-mark { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.2); font-weight: 600; }
+
+  /* IMAGE BREAK */
+  .img-break { position: relative; width: 100%; height: 420px; overflow: hidden; }
+  .img-break img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: brightness(0.75); }
+  .img-break-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px 80px; background: linear-gradient(to top, rgba(15,25,35,0.85) 0%, transparent 100%); }
+  .img-break-overlay span { font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
 
   .rule { border: none; border-top: 1px solid var(--border); margin: 0; }
 
@@ -401,7 +410,13 @@
   </div>
 </section>
 
-<hr class="rule">
+<!-- IMAGE BREAK -->
+<div class="img-break">
+  <img src="pex-pipes.jpg" alt="PEX plumbing pipe installation">
+  <div class="img-break-overlay">
+    <span>Canadian PEX Supply — Built for Trade</span>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section class="section section-alt" id="about">
@@ -412,36 +427,40 @@
       <div class="about-text">
         <p>VIGOLIX is a Calgary-based importer and trade supplier of PEX plumbing products, serving distributors, contractors, and wholesalers across Canada.</p>
         <p>We supply selected products to meet Canadian market requirements and focus on long-term trade relationships.</p>
+        <div class="about-facts" style="margin-top: 36px;">
+          <div class="fact-row">
+            <div class="fact-dot"></div>
+            <div class="fact-content">
+              <strong>Importer Model</strong>
+              <p>VIGOLIX imports finished PEX plumbing products and supplies them to the Canadian trade market. We do not manufacture.</p>
+            </div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-dot"></div>
+            <div class="fact-content">
+              <strong>Canadian Supply Focus</strong>
+              <p>All supply and fulfillment is structured for Canadian distribution channels and trade accounts.</p>
+            </div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-dot"></div>
+            <div class="fact-content">
+              <strong>Trade Customers Only</strong>
+              <p>We supply distributors, wholesalers, and contractors. Not for direct consumer sale.</p>
+            </div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-dot"></div>
+            <div class="fact-content">
+              <strong>Calgary, Alberta</strong>
+              <p>Based and operating in Calgary, Alberta, Canada.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="about-facts">
-        <div class="fact-row">
-          <div class="fact-dot"></div>
-          <div class="fact-content">
-            <strong>Importer Model</strong>
-            <p>VIGOLIX imports finished PEX plumbing products and supplies them to the Canadian trade market. We do not manufacture.</p>
-          </div>
-        </div>
-        <div class="fact-row">
-          <div class="fact-dot"></div>
-          <div class="fact-content">
-            <strong>Canadian Supply Focus</strong>
-            <p>All supply and fulfillment is structured for Canadian distribution channels and trade accounts.</p>
-          </div>
-        </div>
-        <div class="fact-row">
-          <div class="fact-dot"></div>
-          <div class="fact-content">
-            <strong>Trade Customers Only</strong>
-            <p>We supply distributors, wholesalers, and contractors. Not for direct consumer sale.</p>
-          </div>
-        </div>
-        <div class="fact-row">
-          <div class="fact-dot"></div>
-          <div class="fact-content">
-            <strong>Calgary, Alberta</strong>
-            <p>Based and operating in Calgary, Alberta, Canada.</p>
-          </div>
-        </div>
+      <div class="about-image-wrap">
+        <img src="pex-fittings.png" alt="PEX plumbing fittings — VIGOLIX product range">
+        <p class="about-image-caption">Selected PEX fittings from the VIGOLIX product range</p>
       </div>
     </div>
   </div>
