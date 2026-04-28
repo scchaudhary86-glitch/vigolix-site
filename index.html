@@ -97,10 +97,10 @@
   .nav-cta:hover { background: var(--blue-light) !important; }
 
   /* HERO */
-  .hero { background: var(--navy); padding: 100px 0 90px; position: relative; overflow: hidden; width: 100%; }
-  .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 42%; height: 100%; background: linear-gradient(135deg, rgba(46,109,164,0.12) 0%, rgba(46,109,164,0.04) 100%); border-left: 1px solid rgba(46,109,164,0.2); }
+  .hero { background: var(--navy); position: relative; overflow: hidden; width: 100%; }
   .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--blue-accent) 0%, transparent 60%); }
-  .hero-inner { display: grid; grid-template-columns: 55% 45%; gap: 0; align-items: center; width: 100%; }
+  .hero > .container { padding: 0 0 0 80px; max-width: 100%; }
+  .hero-inner { display: grid; grid-template-columns: 55% 45%; gap: 0; align-items: stretch; width: 100%; }
   .hero-eyebrow { font-weight: 600; font-size: 0.75rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
   .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 2px; background: var(--blue-accent); flex-shrink: 0; }
   .hero h1 { font-family: var(--font-display); font-weight: 900; font-size: clamp(3.5rem, 5vw, 6rem); line-height: 1.0; letter-spacing: 0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 30px; }
@@ -113,15 +113,16 @@
   .btn-ghost:hover { color: var(--white); }
   .btn-ghost svg { transition: transform 0.2s; }
   .btn-ghost:hover svg { transform: translateX(4px); }
-  .hero-right { display: flex; align-items: stretch; justify-content: flex-end; padding-left: 40px; }
-  .hero-panel { background: rgba(46,109,164,0.07); border: 1px solid rgba(46,109,164,0.25); padding: 48px 40px; display: flex; flex-direction: column; gap: 0; width: 100%; }
-  .hero-panel-row { display: flex; gap: 20px; justify-content: center; }
-  .hero-stat-block { border: 1px solid rgba(46,109,164,0.3); width: 160px; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(46,109,164,0.08); }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 0; }
+  .hero-right { display: flex; align-items: stretch; }
+  .hero-panel { background: rgba(30,50,75,0.6); border-left: 1px solid rgba(46,109,164,0.2); padding: 60px 48px; display: flex; flex-direction: column; justify-content: center; gap: 0; width: 100%; }
+  .hero-panel-row { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
+  .hero-stat-block { border: 1px solid rgba(46,109,164,0.3); width: 160px; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(46,109,164,0.1); }
   .hero-stat-num { font-family: var(--font-display); font-weight: 800; font-size: 2.6rem; color: var(--white); line-height: 1; letter-spacing: 0.04em; }
   .hero-stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 10px; font-weight: 500; }
-  .hero-panel-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 36px 0; }
-  .hero-panel-facts { display: flex; flex-direction: column; gap: 16px; }
-  .hero-panel-fact { display: flex; align-items: center; gap: 14px; font-size: 0.88rem; color: rgba(255,255,255,0.55); font-weight: 400; line-height: 1.4; }
+  .hero-panel-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 32px; }
+  .hero-panel-facts { display: flex; flex-direction: column; gap: 14px; }
+  .hero-panel-fact { display: flex; align-items: center; gap: 14px; font-size: 0.88rem; color: rgba(255,255,255,0.5); font-weight: 400; line-height: 1.4; }
   .hero-fact-dot { width: 6px; height: 6px; background: var(--blue-accent); border-radius: 50%; flex-shrink: 0; }
 
   /* TRUST STRIP */
@@ -289,56 +290,53 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <p class="hero-eyebrow">Canadian Importer &amp; Trade Supplier</p>
-        <h1>PEX Products<br>for <span>Trade</span><br>Supply</h1>
-        <p class="hero-desc">
-          VIGOLIX supplies selected PEX fittings, valves, manifolds, and accessories to distributors, contractors, and wholesalers across Canada.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn-primary">Request Trade Inquiry</a>
-          <a href="#products" class="btn-ghost">
-            View Product Range
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </a>
-        </div>
+  <div style="width:100%; max-width:100%; display:grid; grid-template-columns:55% 45%; align-items:stretch;">
+    <div class="hero-left" style="padding: 90px 60px 90px 80px;">
+      <p class="hero-eyebrow">Canadian Importer &amp; Trade Supplier</p>
+      <h1>PEX Products<br>for <span>Trade</span><br>Supply</h1>
+      <p class="hero-desc">
+        VIGOLIX supplies selected PEX fittings, valves, manifolds, and accessories to distributors, contractors, and wholesalers across Canada.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Request Trade Inquiry</a>
+        <a href="#products" class="btn-ghost">
+          View Product Range
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
       </div>
-      <div class="hero-right">
-        <div class="hero-panel">
-          <div class="hero-panel-row">
-            <div class="hero-stat-block">
-              <div class="hero-stat-num">B2B</div>
-              <div class="hero-stat-label">Trade Only</div>
-            </div>
-            <div class="hero-stat-block">
-              <div class="hero-stat-num">CA</div>
-              <div class="hero-stat-label">Calgary Based</div>
-            </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-panel">
+        <div class="hero-panel-row">
+          <div class="hero-stat-block">
+            <div class="hero-stat-num">B2B</div>
+            <div class="hero-stat-label">Trade Only</div>
           </div>
-          <div class="hero-panel-divider"></div>
-          <div class="hero-panel-facts">
-            <div class="hero-panel-fact">
-              <span class="hero-fact-dot"></span>
-              <span>Importers of PEX plumbing products</span>
-            </div>
-            <div class="hero-panel-fact">
-              <span class="hero-fact-dot"></span>
-              <span>Serving Canadian trade accounts</span>
-            </div>
-            <div class="hero-panel-fact">
-              <span class="hero-fact-dot"></span>
-              <span>Distributors, contractors &amp; wholesalers</span>
-            </div>
-            <div class="hero-panel-fact">
-              <span class="hero-fact-dot"></span>
-              <span>Pricing &amp; catalogue on request</span>
-            </div>
+          <div class="hero-stat-block">
+            <div class="hero-stat-num">CA</div>
+            <div class="hero-stat-label">Calgary Based</div>
+          </div>
+        </div>
+        <div class="hero-panel-divider"></div>
+        <div class="hero-panel-facts">
+          <div class="hero-panel-fact">
+            <span class="hero-fact-dot"></span>
+            <span>Importers of PEX plumbing products</span>
+          </div>
+          <div class="hero-panel-fact">
+            <span class="hero-fact-dot"></span>
+            <span>Serving Canadian trade accounts</span>
+          </div>
+          <div class="hero-panel-fact">
+            <span class="hero-fact-dot"></span>
+            <span>Distributors, contractors &amp; wholesalers</span>
+          </div>
+          <div class="hero-panel-fact">
+            <span class="hero-fact-dot"></span>
+            <span>Pricing &amp; catalogue on request</span>
           </div>
         </div>
       </div>
