@@ -115,16 +115,16 @@
   .btn-ghost:hover svg { transform: translateX(4px); }
   .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 80px 0; }
   .hero-right { display: flex; align-items: stretch; }
-  .hero-panel { background: rgba(30,50,75,0.6); border-left: 1px solid rgba(46,109,164,0.2); padding: 60px 48px; display: flex; flex-direction: column; justify-content: center; width: 100%; }
-  .hero-panel-top { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; margin-bottom: 40px; }
-  .hero-panel-boxes { display: flex; flex-direction: column; gap: 16px; }
-  .hero-stat-block { border: 1px solid rgba(46,109,164,0.3); width: 100%; height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(46,109,164,0.1); }
-  .hero-stat-num { font-family: var(--font-display); font-weight: 800; font-size: 2.2rem; color: var(--white); line-height: 1; letter-spacing: 0.04em; }
+  .hero-panel { background: rgba(30,50,75,0.6); border-left: 1px solid rgba(46,109,164,0.2); display: flex; flex-direction: column; justify-content: center; width: 100%; overflow: hidden; }
+  .hero-panel-img { width: 100%; height: 260px; overflow: hidden; border-bottom: 1px solid rgba(46,109,164,0.15); }
+  .hero-panel-img img { width: 100%; height: 100%; object-fit: cover; object-position: center center; mix-blend-mode: luminosity; filter: contrast(1.1); display: block; }
+  .hero-panel-body { padding: 40px 48px 48px; display: flex; flex-direction: column; gap: 0; }
+  .hero-panel-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+  .hero-stat-block { border: 1px solid rgba(46,109,164,0.3); height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(46,109,164,0.1); }
+  .hero-stat-num { font-family: var(--font-display); font-weight: 800; font-size: 2.4rem; color: var(--white); line-height: 1; letter-spacing: 0.04em; }
   .hero-stat-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 8px; font-weight: 500; }
-  .hero-panel-img { display: flex; align-items: center; justify-content: center; }
-  .hero-panel-img img { width: 100%; max-width: 220px; height: auto; object-fit: contain; mix-blend-mode: lighten; opacity: 0.92; }
-  .hero-panel-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 32px; }
-  .hero-panel-facts { display: flex; flex-direction: column; gap: 14px; }
+  .hero-panel-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 28px; }
+  .hero-panel-facts { display: flex; flex-direction: column; gap: 13px; }
   .hero-panel-fact { display: flex; align-items: center; gap: 14px; font-size: 0.88rem; color: rgba(255,255,255,0.5); font-weight: 400; line-height: 1.4; }
   .hero-fact-dot { width: 6px; height: 6px; background: var(--blue-accent); border-radius: 50%; flex-shrink: 0; }
 
@@ -322,7 +322,10 @@
     </div>
     <div class="hero-right">
       <div class="hero-panel">
-        <div class="hero-panel-top">
+        <div class="hero-panel-img">
+          <img src="pex-fittings-dark.png" alt="PEX fittings product range">
+        </div>
+        <div class="hero-panel-body">
           <div class="hero-panel-boxes">
             <div class="hero-stat-block">
               <div class="hero-stat-num">B2B</div>
@@ -333,27 +336,12 @@
               <div class="hero-stat-label">Calgary Based</div>
             </div>
           </div>
-          <div class="hero-panel-img">
-            <img src="pex-fittings-dark.png" alt="PEX fittings product range">
-          </div>
-        </div>
-        <div class="hero-panel-divider"></div>
-        <div class="hero-panel-facts">
-          <div class="hero-panel-fact">
-            <span class="hero-fact-dot"></span>
-            <span>Importers of PEX plumbing products</span>
-          </div>
-          <div class="hero-panel-fact">
-            <span class="hero-fact-dot"></span>
-            <span>Serving Canadian trade accounts</span>
-          </div>
-          <div class="hero-panel-fact">
-            <span class="hero-fact-dot"></span>
-            <span>Distributors, contractors &amp; wholesalers</span>
-          </div>
-          <div class="hero-panel-fact">
-            <span class="hero-fact-dot"></span>
-            <span>Pricing &amp; catalogue on request</span>
+          <div class="hero-panel-divider"></div>
+          <div class="hero-panel-facts">
+            <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Importers of PEX plumbing products</span></div>
+            <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Serving Canadian trade accounts</span></div>
+            <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Distributors, contractors &amp; wholesalers</span></div>
+            <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Pricing &amp; catalogue on request</span></div>
           </div>
         </div>
       </div>
