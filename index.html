@@ -92,7 +92,10 @@
   }
   .hero-left {
     display: flex; flex-direction: column; justify-content: center;
-    padding: 88px var(--gutter);
+    /* Left padding = same as .wrap gutter. Right padding = comfortable reading gap */
+    padding: 88px 60px 88px var(--gutter);
+    /* Enforce same max-width logic as .wrap so text doesn't exceed container */
+    max-width: calc(var(--max) * 0.55);
   }
   .hero-eyebrow {
     font-weight: 600; font-size: 0.74rem; letter-spacing: 0.28em;
@@ -142,28 +145,27 @@
     overflow: hidden;
   }
 
-  /* Fittings image — contained, blended, no white box */
+  /* Fittings image — neutral background, no color distortion */
   .hero-panel-img {
     flex: 1;
     position: relative;
-    background: #0e1d2e;
+    background: #111c28; /* neutral dark, no blue tint */
     overflow: hidden;
-    min-height: 260px;
+    min-height: 280px;
   }
   .hero-panel-img img {
     width: 100%; height: 100%;
-    object-fit: contain;        /* show full fittings, no crop */
+    object-fit: contain;
     object-position: center center;
     display: block;
-    mix-blend-mode: luminosity; /* dissolves white bg into dark panel */
-    filter: brightness(1.05) contrast(1.08);
-    padding: 20px;
+    /* NO mix-blend-mode, NO filter — preserves true product colors */
+    padding: 24px;
   }
-  /* Dark fade at bottom of image blending into boxes below */
+  /* Neutral dark gradient fade at bottom only — no color cast */
   .hero-panel-img::after {
     content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
-    background: linear-gradient(to top, rgba(20,38,58,0.95) 0%, transparent 100%);
+    position: absolute; bottom: 0; left: 0; right: 0; height: 70px;
+    background: linear-gradient(to top, rgba(17,28,40,0.98) 0%, transparent 100%);
     pointer-events: none;
   }
 
@@ -259,32 +261,33 @@
 
   /* ─── PEX PIPE IMAGE BREAK ─── */
   .img-break {
-    position: relative; width: 100%; height: 340px; overflow: hidden;
-    background: var(--navy); /* fallback if image slow */
+    position: relative; width: 100%; height: 300px; overflow: hidden;
+    background: #1a2a1a;
   }
   .img-break img {
     width: 100%; height: 100%;
-    object-fit: cover; object-position: center 40%;
+    object-fit: cover; object-position: center 35%;
     display: block;
-    filter: brightness(0.55) saturate(0.8);
-    image-rendering: auto;
+    /* Keep vivid pipe colors — only slight brightness reduction for readability */
+    filter: brightness(0.72);
   }
-  /* top + bottom gradient fades so image dissolves into sections above/below */
+  /* Top fade dissolves into white section above */
   .img-break::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 90px;
-    background: linear-gradient(to bottom, var(--off-white) 0%, transparent 100%);
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 80px;
+    background: linear-gradient(to bottom, var(--white) 0%, transparent 100%);
     z-index: 2; pointer-events: none;
   }
+  /* Bottom fade dissolves into off-white section below */
   .img-break::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 90px;
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
     background: linear-gradient(to top, var(--off-white) 0%, transparent 100%);
     z-index: 2; pointer-events: none;
   }
   .img-break-label {
-    position: absolute; bottom: 28px; left: var(--gutter);
+    position: absolute; bottom: 24px; left: var(--gutter);
     z-index: 3;
-    font-family: var(--fd); font-weight: 700; font-size: 0.76rem;
-    letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.5);
+    font-family: var(--fd); font-weight: 700; font-size: 0.74rem;
+    letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.55);
   }
 
   /* ─── ABOUT ─── */
@@ -306,21 +309,21 @@
   }
   .fact-content p { font-size: 0.87rem; line-height: 1.6; color: var(--text-muted); margin: 0; }
 
-  /* About image — soft, no hard box */
+  /* About image — natural placement, no hard box, no color tint */
   .about-image-wrap { position: sticky; top: 110px; }
   .about-image-wrap img {
     width: 100%; height: auto; display: block;
-    /* soft vignette border instead of hard box */
-    border-radius: 4px;
-    box-shadow:
-      0 0 0 1px rgba(0,0,0,0.06),
-      0 4px 24px rgba(15,25,35,0.1),
-      0 1px 4px rgba(15,25,35,0.06);
     background: #fff;
-    padding: 28px;
+    padding: 24px;
+    border-radius: 3px;
+    /* Soft natural shadow — no blue tint, no hard border */
+    box-shadow:
+      0 2px 8px rgba(0,0,0,0.06),
+      0 8px 32px rgba(0,0,0,0.09),
+      0 1px 2px rgba(0,0,0,0.04);
   }
   .about-image-caption {
-    margin-top: 12px; font-size: 0.7rem; letter-spacing: 0.16em;
+    margin-top: 10px; font-size: 0.7rem; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--text-muted); font-weight: 500; text-align: center;
   }
 
@@ -807,8 +810,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">Vigolix® | A trade name of 2288267 Alberta Ltd. | Calgary, Alberta, Canada.</p>
-      <p class="footer-mark">© 2021–2026 All rights reserved</p>
+      <p class="footer-copy">© 2021–2026 Vigolix® | A trade name of 2288267 Alberta Ltd. | Calgary, Alberta, Canada. All rights reserved.</p>
+      <p class="footer-mark">vigolix.com</p>
     </div>
   </div>
 </footer>
