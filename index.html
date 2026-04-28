@@ -22,21 +22,29 @@
     --text-muted:     #637890;
     --fd: 'Barlow Condensed', sans-serif;
     --fb: 'Barlow', sans-serif;
-    --gutter: 80px;
-    --max: 1480px;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; overflow-x: hidden; }
-  body { font-family: var(--fb); background: var(--white); color: var(--text-primary);
-         line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body {
+    font-family: var(--fb);
+    background: var(--white);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
 
-  /* ─── SINGLE CONTAINER SYSTEM ─── */
-  .wrap {
+  /* ═══════════════════════════════════════════
+     SINGLE GLOBAL CONTAINER — used everywhere
+     Every section's content aligns to this grid
+  ═══════════════════════════════════════════ */
+  .container {
     width: 100%;
-    max-width: var(--max);
+    max-width: 1480px;
     margin: 0 auto;
-    padding: 0 var(--gutter);
+    padding-left: 60px;
+    padding-right: 60px;
   }
 
   /* ─── HEADER ─── */
@@ -47,7 +55,9 @@
     position: sticky; top: 0; z-index: 200;
     width: 100%;
   }
-  .header-inner { display: flex; align-items: center; justify-content: space-between; }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+  }
   .logo-wrap { display: flex; align-items: center; height: 90px; }
   .logo-wrap img {
     height: 90px; width: auto; max-width: 360px;
@@ -76,26 +86,36 @@
   .nav-cta:hover { background: var(--blue-light) !important; }
 
   /* ─── HERO ─── */
-  .hero { background: var(--navy); width: 100%; position: relative; overflow: hidden; }
+  /* Full-width dark background, but content constrained by .container */
+  .hero {
+    background: var(--navy);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
   .hero::after {
     content: ''; position: absolute; bottom: 0; left: 0;
     width: 100%; height: 3px;
     background: linear-gradient(90deg, var(--blue-accent) 0%, transparent 55%);
   }
-  /* Hero uses full-bleed grid — NO .wrap so right panel reaches screen edge */
+  /*
+    The hero container uses the global .container for max-width/padding.
+    Inside it, a grid splits left content (55%) and right panel (45%).
+    Left edge of hero text = left edge of all other sections. ✓
+  */
+  .hero > .container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   .hero-grid {
     display: grid;
     grid-template-columns: 55% 45%;
     align-items: stretch;
-    width: 100%;
     min-height: 580px;
   }
   .hero-left {
     display: flex; flex-direction: column; justify-content: center;
-    /* Left padding = same as .wrap gutter. Right padding = comfortable reading gap */
-    padding: 88px 60px 88px var(--gutter);
-    /* Enforce same max-width logic as .wrap so text doesn't exceed container */
-    max-width: calc(var(--max) * 0.55);
+    padding: 88px 60px 88px 0; /* left=0 because .container already has 60px padding */
   }
   .hero-eyebrow {
     font-weight: 600; font-size: 0.74rem; letter-spacing: 0.28em;
@@ -108,7 +128,7 @@
   }
   .hero h1 {
     font-family: var(--fd); font-weight: 900;
-    font-size: clamp(3.2rem, 5vw, 5.8rem);
+    font-size: clamp(3.2rem, 4.5vw, 5.8rem);
     line-height: 1; letter-spacing: 0.01em; text-transform: uppercase;
     color: #fff; margin-bottom: 28px;
   }
@@ -116,7 +136,7 @@
   .hero-desc {
     font-size: 1.05rem; line-height: 1.8;
     color: rgba(255,255,255,0.6); margin-bottom: 42px;
-    font-weight: 400; max-width: 520px;
+    font-weight: 400; max-width: 500px;
   }
   .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
   .btn-primary {
@@ -135,7 +155,7 @@
   .btn-ghost svg { transition: transform 0.2s; }
   .btn-ghost:hover svg { transform: translateX(4px); }
 
-  /* Hero right panel */
+  /* Hero right panel — sits inside .container's right 45% column */
   .hero-right { display: flex; align-items: stretch; }
   .hero-panel {
     width: 100%;
@@ -144,12 +164,10 @@
     display: flex; flex-direction: column;
     overflow: hidden;
   }
-
-  /* Fittings image — neutral background, no color distortion */
   .hero-panel-img {
     flex: 1;
     position: relative;
-    background: #111c28; /* neutral dark, no blue tint */
+    background: #111c28;
     overflow: hidden;
     min-height: 280px;
   }
@@ -158,17 +176,14 @@
     object-fit: contain;
     object-position: center center;
     display: block;
-    /* NO mix-blend-mode, NO filter — preserves true product colors */
     padding: 24px;
   }
-  /* Neutral dark gradient fade at bottom only — no color cast */
   .hero-panel-img::after {
     content: '';
     position: absolute; bottom: 0; left: 0; right: 0; height: 70px;
     background: linear-gradient(to top, rgba(17,28,40,0.98) 0%, transparent 100%);
     pointer-events: none;
   }
-
   .hero-panel-body { padding: 28px 40px 40px; }
   .hero-panel-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
   .hero-stat-block {
@@ -197,7 +212,11 @@
   }
 
   /* ─── TRUST STRIP ─── */
-  .trust-strip { background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 18px 0; }
+  .trust-strip {
+    background: var(--dark);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 18px 0;
+  }
   .trust-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
   .trust-item {
     font-family: var(--fd); font-weight: 700; font-size: 0.72rem;
@@ -259,7 +278,7 @@
   }
   .card-body { font-size: 0.92rem; line-height: 1.7; color: var(--text-muted); }
 
-  /* ─── PEX PIPE IMAGE BREAK ─── */
+  /* ─── PEX PIPE IMAGE BREAK — full bleed, no container ─── */
   .img-break {
     position: relative; width: 100%; height: 300px; overflow: hidden;
     background: #1a2a1a;
@@ -268,23 +287,22 @@
     width: 100%; height: 100%;
     object-fit: cover; object-position: center 35%;
     display: block;
-    /* Keep vivid pipe colors — only slight brightness reduction for readability */
     filter: brightness(0.72);
   }
-  /* Top fade dissolves into white section above */
   .img-break::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 80px;
     background: linear-gradient(to bottom, var(--white) 0%, transparent 100%);
     z-index: 2; pointer-events: none;
   }
-  /* Bottom fade dissolves into off-white section below */
   .img-break::after {
     content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
     background: linear-gradient(to top, var(--off-white) 0%, transparent 100%);
     z-index: 2; pointer-events: none;
   }
+  /* Label aligned to same 60px left edge as .container */
   .img-break-label {
-    position: absolute; bottom: 24px; left: var(--gutter);
+    position: absolute; bottom: 24px;
+    left: max(60px, calc(50% - 740px + 60px));
     z-index: 3;
     font-family: var(--fd); font-weight: 700; font-size: 0.74rem;
     letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.55);
@@ -308,15 +326,12 @@
     color: var(--text-primary); margin-bottom: 4px;
   }
   .fact-content p { font-size: 0.87rem; line-height: 1.6; color: var(--text-muted); margin: 0; }
-
-  /* About image — natural placement, no hard box, no color tint */
   .about-image-wrap { position: sticky; top: 110px; }
   .about-image-wrap img {
     width: 100%; height: auto; display: block;
     background: #fff;
     padding: 24px;
     border-radius: 3px;
-    /* Soft natural shadow — no blue tint, no hard border */
     box-shadow:
       0 2px 8px rgba(0,0,0,0.06),
       0 8px 32px rgba(0,0,0,0.09),
@@ -381,7 +396,10 @@
   }
   .form-group input:focus,
   .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--blue-accent); box-shadow: 0 0 0 3px rgba(46,109,164,0.1); }
+  .form-group textarea:focus {
+    border-color: var(--blue-accent);
+    box-shadow: 0 0 0 3px rgba(46,109,164,0.1);
+  }
   .form-group textarea { min-height: 124px; resize: vertical; }
   .form-submit {
     background: var(--blue-accent); color: #fff; font-family: var(--fb);
@@ -392,12 +410,13 @@
   .form-submit:hover { background: var(--blue-light); }
   .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
   .form-disclaimer { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
-  #fs-success, #fs-error { border-radius: 2px; font-size: 0.9rem; font-weight: 600; }
 
   /* ─── FOOTER ─── */
   footer {
-    background: var(--navy); border-top: 3px solid var(--blue-accent);
-    padding: 52px 0 34px; width: 100%;
+    background: var(--navy);
+    border-top: 3px solid var(--blue-accent);
+    padding: 52px 0 34px;
+    width: 100%;
   }
   .footer-inner {
     display: grid; grid-template-columns: 1.5fr 1fr 1fr;
@@ -426,17 +445,17 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1200px) {
-    :root { --gutter: 48px; }
+    .container { padding-left: 40px; padding-right: 40px; }
     .product-grid { grid-template-columns: repeat(2,1fr); }
     .position-grid { grid-template-columns: repeat(2,1fr); }
     .contact-grid { gap: 56px; }
   }
 
   @media (max-width: 900px) {
-    :root { --gutter: 32px; }
+    .container { padding-left: 32px; padding-right: 32px; }
     .hero-grid { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 64px var(--gutter); }
-    .hero-right { display: none; } /* panel hides on tablet — too narrow */
+    .hero-left { padding: 64px 0; }
+    .hero-right { display: none; }
     .about-grid { grid-template-columns: 1fr; gap: 48px; }
     .about-image-wrap { position: static; }
     .contact-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -447,30 +466,28 @@
   }
 
   @media (max-width: 768px) {
-    :root { --gutter: 24px; }
+    .container { padding-left: 24px; padding-right: 24px; }
     .hero h1 { font-size: 3rem; }
     .hero-desc { font-size: 0.97rem; }
     .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .btn-primary, .btn-ghost { width: 100%; justify-content: center; text-align: center; }
+    .btn-primary, .btn-ghost { width: auto; }
     .product-grid { grid-template-columns: 1fr; }
     .position-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .trust-item { padding: 4px 16px; font-size: 0.65rem; }
     .footer-inner { grid-template-columns: 1fr; }
     .img-break { height: 200px; }
-    .img-break-label { left: var(--gutter); font-size: 0.65rem; }
     .section { padding: 56px 0; }
     nav { gap: 20px; }
     nav a { font-size: 0.72rem; }
   }
 
   @media (max-width: 480px) {
-    :root { --gutter: 18px; }
+    .container { padding-left: 18px; padding-right: 18px; }
     .logo-wrap { height: 70px; }
     .logo-wrap img { height: 70px; }
     nav { display: none; }
     .hero h1 { font-size: 2.5rem; }
-    .header-inner { padding: 0; }
   }
 </style>
 </head>
@@ -478,7 +495,7 @@
 
 <!-- ═══ HEADER ═══ -->
 <header>
-  <div class="wrap">
+  <div class="container">
     <div class="header-inner">
       <div class="logo-wrap">
         <img src="logo.png" alt="VIGOLIX"
@@ -497,76 +514,78 @@
   </div>
 </header>
 
-<!-- ═══ HERO ═══ -->
+<!-- ═══ HERO ═══
+     Background spans full width.
+     .container constrains content to same 1480px/60px grid as all other sections.
+     Left edge of hero text = left edge of product cards = left edge of footer. ✓
+-->
 <section class="hero">
-  <div class="hero-grid">
+  <div class="container">
+    <div class="hero-grid">
 
-    <!-- LEFT: text content — padded using CSS var(--gutter) -->
-    <div class="hero-left">
-      <p class="hero-eyebrow">Canadian Importer &amp; Trade Supplier</p>
-      <h1>PEX Products<br>for <span>Trade</span><br>Supply</h1>
-      <p class="hero-desc">
-        VIGOLIX supplies selected PEX fittings, valves, manifolds, and accessories
-        to distributors, contractors, and wholesalers across Canada.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Request Trade Inquiry</a>
-        <a href="#products" class="btn-ghost">
-          View Product Range
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- RIGHT: dark panel with image blended in -->
-    <div class="hero-right">
-      <div class="hero-panel">
-        <div class="hero-panel-img">
-          <img src="pex-fittings-dark.png" alt="PEX fittings product range">
-        </div>
-        <div class="hero-panel-body">
-          <div class="hero-panel-boxes">
-            <div class="hero-stat-block">
-              <div class="hero-stat-num">B2B</div>
-              <div class="hero-stat-label">Trade Only</div>
-            </div>
-            <div class="hero-stat-block">
-              <div class="hero-stat-num">CA</div>
-              <div class="hero-stat-label">Calgary Based</div>
-            </div>
-          </div>
-          <div class="hero-panel-divider"></div>
-          <div class="hero-panel-facts">
-            <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Importers of PEX plumbing products</span></div>
-            <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Serving Canadian trade accounts</span></div>
-            <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Distributors, contractors &amp; wholesalers</span></div>
-            <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Pricing &amp; catalogue on request</span></div>
-          </div>
+      <div class="hero-left">
+        <p class="hero-eyebrow">Canadian Importer &amp; Trade Supplier</p>
+        <h1>PEX Products<br>for <span>Trade</span><br>Supply</h1>
+        <p class="hero-desc">
+          VIGOLIX supplies selected PEX fittings, valves, manifolds, and accessories
+          to distributors, contractors, and wholesalers across Canada.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Request Trade Inquiry</a>
+          <a href="#products" class="btn-ghost">
+            View Product Range
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
         </div>
       </div>
-    </div>
 
+      <div class="hero-right">
+        <div class="hero-panel">
+          <div class="hero-panel-img">
+            <img src="pex-fittings-dark.png" alt="PEX fittings product range">
+          </div>
+          <div class="hero-panel-body">
+            <div class="hero-panel-boxes">
+              <div class="hero-stat-block">
+                <div class="hero-stat-num">B2B</div>
+                <div class="hero-stat-label">Trade Only</div>
+              </div>
+              <div class="hero-stat-block">
+                <div class="hero-stat-num">CA</div>
+                <div class="hero-stat-label">Calgary Based</div>
+              </div>
+            </div>
+            <div class="hero-panel-divider"></div>
+            <div class="hero-panel-facts">
+              <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Importers of PEX plumbing products</span></div>
+              <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Serving Canadian trade accounts</span></div>
+              <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Distributors, contractors &amp; wholesalers</span></div>
+              <div class="hero-panel-fact"><span class="hero-fact-dot"></span><span>Pricing &amp; catalogue on request</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <!-- ═══ TRUST STRIP ═══ -->
 <div class="trust-strip">
-  <div class="wrap">
-    <div class="trust-inner">
-      <span class="trust-item">PEX Fittings</span>
-      <span class="trust-item">Valves</span>
-      <span class="trust-item">Manifolds</span>
-      <span class="trust-item">Accessories</span>
-      <span class="trust-item">Trade Supply</span>
-    </div>
+  <div class="trust-inner">
+    <span class="trust-item">PEX Fittings</span>
+    <span class="trust-item">Valves</span>
+    <span class="trust-item">Manifolds</span>
+    <span class="trust-item">Accessories</span>
+    <span class="trust-item">Trade Supply</span>
   </div>
 </div>
 
 <!-- ═══ PRODUCTS ═══ -->
 <section class="section" id="products">
-  <div class="wrap">
+  <div class="container">
     <p class="section-label">Product Range</p>
     <h2 class="section-title">Core Product Categories</h2>
     <p class="section-sub">Selected PEX plumbing product categories for trade supply and distribution.</p>
@@ -608,7 +627,7 @@
   </div>
 </section>
 
-<!-- ═══ PEX PIPE IMAGE BREAK ═══ -->
+<!-- ═══ PEX PIPE IMAGE BREAK — intentionally full-bleed ═══ -->
 <div class="img-break">
   <img src="pex-pipes.jpg" alt="PEX plumbing pipe installation">
   <span class="img-break-label">Canadian PEX Supply — Built for Trade</span>
@@ -616,7 +635,7 @@
 
 <!-- ═══ ABOUT ═══ -->
 <section class="section section-alt" id="about">
-  <div class="wrap">
+  <div class="container">
     <p class="section-label">About Vigolix</p>
     <h2 class="section-title">Canadian Trade Supplier</h2>
     <div class="about-grid">
@@ -667,7 +686,7 @@
 
 <!-- ═══ POSITIONING ═══ -->
 <section class="section section-dark">
-  <div class="wrap">
+  <div class="container">
     <p class="section-label" style="color:var(--blue-light);">How We Work</p>
     <h2 class="section-title" style="color:#fff; margin-bottom:44px;">Business Positioning</h2>
     <div class="position-grid">
@@ -697,7 +716,7 @@
 
 <!-- ═══ CONTACT ═══ -->
 <section class="section" id="contact">
-  <div class="wrap">
+  <div class="container">
     <p class="section-label">Get in Touch</p>
     <h2 class="section-title">Trade Inquiry</h2>
     <div class="contact-grid">
@@ -721,7 +740,6 @@
         </div>
       </div>
 
-      <!-- FORM — simple native POST to Formspree, most reliable on GitHub Pages -->
       <form
         class="contact-form"
         id="tradeForm"
@@ -763,7 +781,6 @@
           <textarea id="message" name="message" placeholder="Describe your product requirements or any questions regarding trade supply."></textarea>
         </div>
 
-        <!-- hidden redirect back to same page after Formspree submission -->
         <input type="hidden" name="_next" value="https://vigolix.com/#contact">
         <input type="hidden" name="_subject" value="New Trade Inquiry — VIGOLIX">
 
@@ -784,7 +801,7 @@
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <div class="wrap">
+  <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="wm">VIGOLIX</span>
@@ -817,9 +834,7 @@
 </footer>
 
 <script>
-  // AJAX form submission with Formspree JSON API
-  // Falls back gracefully — native POST still works if JS fails
-  const form = document.getElementById('tradeForm');
+  const form      = document.getElementById('tradeForm');
   const successEl = document.getElementById('fs-success');
   const errorEl   = document.getElementById('fs-error');
   const submitBtn = document.getElementById('submitBtn');
@@ -837,8 +852,8 @@
     const actype  = document.getElementById('actype').value;
 
     if (!fname || !lname || !company || !email || !actype) {
-      errorEl.textContent    = 'Please fill in all required fields.';
-      errorEl.style.display  = 'block';
+      errorEl.textContent   = 'Please fill in all required fields.';
+      errorEl.style.display = 'block';
       return;
     }
 
@@ -876,10 +891,9 @@
         submitBtn.textContent = 'Submit Trade Inquiry';
       }
     } catch (err) {
-      // Network error — try native POST as last resort
-      errorEl.textContent   = 'Network error. Retrying with direct submit…';
+      errorEl.textContent   = 'Network error. Retrying…';
       errorEl.style.display = 'block';
-      setTimeout(() => form.submit(), 1200); // native POST fallback
+      setTimeout(() => form.submit(), 1200);
     }
   });
 </script>
