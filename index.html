@@ -849,6 +849,7 @@
     successEl.style.display = 'none';
     errorEl.style.display   = 'none';
 
+    // Client-side validation
     const fname   = document.getElementById('fname').value.trim();
     const lname   = document.getElementById('lname').value.trim();
     const company = document.getElementById('company').value.trim();
@@ -864,21 +865,21 @@
     submitBtn.disabled    = true;
     submitBtn.textContent = 'Sending…';
 
-    const payload = {
-      first_name:   fname,
-      last_name:    lname,
-      company:      company,
-      email:        email,
-      account_type: actype,
-      message:      document.getElementById('message').value.trim()
-    };
-
+    /*
+      CRITICAL FIX:
+      Use FormData — NOT JSON.stringify.
+      Do NOT set Content-Type header manually.
+      Formspree requires this exact pattern to avoid CORS preflight failure.
+      Only set Accept: application/json so we get a JSON response back.
+    */
     try {
       const res = await fetch('https://formspree.io/f/xpqkevjd', {
         method:  'POST',
-        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload)
+        headers: { 'Accept': 'application/json' },
+        body:    new FormData(form)
       });
+
+      const data = await res.json().catch(() => ({}));
 
       if (res.ok) {
         successEl.style.display = 'block';
@@ -886,18 +887,18 @@
         form.reset();
         submitBtn.textContent = 'Inquiry Submitted ✓';
       } else {
-        const data = await res.json().catch(() => ({}));
         errorEl.textContent   = (data.errors && data.errors.length)
-          ? data.errors.map(e => e.message).join(', ')
+          ? data.errors.map(err => err.message).join(', ')
           : 'Submission failed. Please try again.';
         errorEl.style.display = 'block';
         submitBtn.disabled    = false;
         submitBtn.textContent = 'Submit Trade Inquiry';
       }
     } catch (err) {
-      errorEl.textContent   = 'Network error. Retrying…';
+      errorEl.textContent   = 'Network error. Please check your connection and try again.';
       errorEl.style.display = 'block';
-      setTimeout(() => form.submit(), 1200);
+      submitBtn.disabled    = false;
+      submitBtn.textContent = 'Submit Trade Inquiry';
     }
   });
 </script>
