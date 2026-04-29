@@ -419,33 +419,50 @@
   footer {
     background: var(--navy);
     border-top: 3px solid var(--blue-accent);
-    padding: 52px 0 34px;
+    padding: 56px 0 36px;
     width: 100%;
   }
   .footer-inner {
-    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 72px; margin-bottom: 44px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+    align-items: start;
   }
   .footer-brand .wm {
     font-family: var(--fd); font-weight: 900; font-size: 1.7rem;
     letter-spacing: 0.14em; color: #fff; text-transform: uppercase;
-    display: block; margin-bottom: 8px;
+    display: block; margin-bottom: 10px;
   }
-  .footer-brand .fd { font-size: 0.8rem; color: rgba(255,255,255,0.38); line-height: 1.6; }
-  .footer-brand .floc { margin-top: 12px; font-size: 0.8rem; color: rgba(255,255,255,0.48); letter-spacing: 0.06em; }
+  .footer-brand .fd {
+    font-size: 0.82rem; color: rgba(255,255,255,0.4);
+    font-weight: 400; line-height: 1.6; margin-bottom: 4px;
+  }
+  .footer-brand .floc {
+    font-size: 0.82rem; color: rgba(255,255,255,0.5);
+    font-weight: 400; letter-spacing: 0.04em; margin-bottom: 14px;
+  }
+  .footer-contact-line {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.82rem; color: rgba(255,255,255,0.5);
+    font-weight: 400; line-height: 1.7; text-decoration: none;
+  }
+  .footer-contact-line:hover { color: rgba(255,255,255,0.8); }
   .footer-col-title {
     font-family: var(--fd); font-weight: 700; font-size: 0.72rem;
-    letter-spacing: 0.26em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 18px;
+    letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--blue-light); margin-bottom: 20px;
   }
-  .footer-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-  .footer-list li { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.4; }
+  .footer-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-list li { font-size: 0.86rem; color: rgba(255,255,255,0.45); line-height: 1.4; }
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 10px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 28px;
+    text-align: center;
   }
-  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.28); line-height: 1.5; }
-  .footer-mark { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.18); font-weight: 600; }
+  .footer-copy {
+    font-size: 0.78rem; color: rgba(255,255,255,0.28); line-height: 1.6;
+  }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1200px) {
@@ -458,14 +475,15 @@
   @media (max-width: 900px) {
     .container { padding-left: 32px; padding-right: 32px; }
     .hero-grid { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 64px 0; }
+    .hero-left { padding: 52px 0 48px; }
     .hero-right { display: none; }
     .about-grid { grid-template-columns: 1fr; gap: 48px; }
     .about-image-wrap { position: static; }
     .contact-grid { grid-template-columns: 1fr; gap: 48px; }
     .footer-inner { grid-template-columns: 1fr; gap: 36px; }
-    .section { padding: 68px 0; }
-    .img-break { height: 260px; }
+    .footer-bottom { text-align: left; }
+    .section { padding: 60px 0; }
+    .img-break { height: 220px; }
     .position-grid { grid-template-columns: repeat(2,1fr); }
   }
 
@@ -807,11 +825,21 @@
 <footer>
   <div class="container">
     <div class="footer-inner">
+
       <div class="footer-brand">
         <span class="wm">VIGOLIX</span>
         <p class="fd">PEX plumbing supply for trade customers</p>
         <p class="floc">Calgary, Alberta, Canada</p>
+        <a href="tel:+14038796688" class="footer-contact-line">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 10.72 19.79 19.79 0 0 1 1.61 2.1 2 2 0 0 1 3.6 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 15z"/></svg>
+          (403) 879-6688
+        </a>
+        <a href="mailto:info@vigolix.com" class="footer-contact-line">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@vigolix.com
+        </a>
       </div>
+
       <div>
         <p class="footer-col-title">Products</p>
         <ul class="footer-list">
@@ -821,6 +849,7 @@
           <li>Accessories</li>
         </ul>
       </div>
+
       <div>
         <p class="footer-col-title">Trade Supply</p>
         <ul class="footer-list">
@@ -829,10 +858,10 @@
           <li>Calgary Operations</li>
         </ul>
       </div>
+
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2021–2026 Vigolix® | A trade name of 2288267 Alberta Ltd. | Calgary, Alberta, Canada. All rights reserved.</p>
-      <p class="footer-mark">vigolix.com</p>
     </div>
   </div>
 </footer>
